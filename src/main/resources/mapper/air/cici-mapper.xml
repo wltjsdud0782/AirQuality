@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="ciciMapper">
+
+    <resultMap id="cici" type="com.Phoenix.AirQuality.air.vo.CiciVO">
+        <id column="CICI_NO" property="ciciNo"/>
+        <result column="CICI_CODE" property="ciciCode"/>
+        <result column="CICI_GRADE" property="ciciGrade"/>
+        <result column="SERIAL_NO" property="serialNo"/>
+    </resultMap>
+
+    <select id="selectCici" resultMap="cici">
+        SELECT CICI_NO
+            , CICI_CODE
+            , CICI_GRADE
+            , SERIAL_NO
+        FROM CICI
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
