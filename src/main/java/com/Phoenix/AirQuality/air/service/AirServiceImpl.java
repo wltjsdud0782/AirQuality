@@ -14,15 +14,29 @@ public class AirServiceImpl implements AirService{
     @Autowired
     private SqlSessionTemplate sqlSession;
 
-    //공기질 보기
+    //공기질 전체 보기
     @Override
     public List<AirQualityVO> selectAirQuality() {
-        return null;
+        return sqlSession.selectList("airMapper.selectAirQuality");
     }
 
-    //통합실내지수 보기
+    //통합실내지수 전체 보기
     @Override
     public List<CiciVO> selectCici() {
-        return null;
+        return sqlSession.selectList("ciciMapper.selectCici");
+    }
+
+    // ----------------------------------------------------------------------------------------- //
+
+    //가장 높은 실내통합지수 top 10
+    @Override
+    public List<CiciVO> bestCiciTop10() {
+        return sqlSession.selectList("ciciMapper.bestCiciTop10");
+    }
+
+    //가장 낮은 실내통합지수 top 10
+    @Override
+    public List<CiciVO> worstCiciTop10() {
+        return sqlSession.selectList("ciciMapper.worstCiciTop10");
     }
 }

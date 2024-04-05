@@ -11,6 +11,7 @@
         <result column="SERIAL_NO" property="serialNo"/>
     </resultMap>
 
+    <!-- 통합실내지수 전체 보기 -->
     <select id="selectCici" resultMap="cici">
         SELECT CICI_NO
             , CICI_CODE
@@ -19,6 +20,23 @@
         FROM CICI
     </select>
 
+    <!-- 가장 높은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->
+    <select id="bestCiciTop10" resultMap="cici">
+    SELECT SERIAL_NO
+        , CICI_CODE
+        , CICI_GRADE
+    FROM CICI
+    ORDER BY CICI_CODE DESC LIMIT 10
+    </select>
+
+    <!-- 가장 낮은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->
+    <select id="worstCiciTop10" resultMap="cici">
+    SELECT SERIAL_NO
+        , CICI_CODE
+        , CICI_GRADE
+    FROM CICI
+    ORDER BY CICI_CODE ASC LIMIT 10
+    </select>
 
 
 </mapper>

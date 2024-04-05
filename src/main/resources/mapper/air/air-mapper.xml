@@ -15,6 +15,7 @@
         <result column="SERIAL_NO" property="serialNo"/>
     </resultMap>
 
+    <!-- 공기질 데이터 전체 보기-->
     <select id="selectAirQuality" resultMap="airQuality">
         SELECT AIR_NO
             , PM_CODE
