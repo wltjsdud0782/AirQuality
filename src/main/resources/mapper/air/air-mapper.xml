@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="airMapper">
+
+    <resultMap id="airQuality" type="com.Phoenix.AirQuality.air.vo.AirQualityVO">
+        <id column="AIR_NO" property="airNo"/>
+        <result column="PM_CODE" property="pmCode"/>
+        <result column="PM_GRADE" property="pmGrade"/>
+        <result column="FPM_CODE" property="fpmCode"/>
+        <result column="FPM_GRADE" property="fpmGrade"/>
+        <result column="CO2_CODE" property="co2Code"/>
+        <result column="VOCS_CODE" property="vocsCode"/>
+        <result column="SERIAL_NO" property="serialNo"/>
+    </resultMap>
+
+    <select id="selectAirQuality" resultMap="airQuality">
+        SELECT AIR_NO
+            , PM_CODE
+            , PM_GRADE
+            , FPM_CODE
+            , FPM_GRADE
+            , CO2_CODE
+            , VOCS_CODE
+            , SERIAL_NO
+        FROM AIR_QUALITY
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
