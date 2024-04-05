@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/home_layout}">
+
+<th:block layout:fragment="content_css">
+    <!-- html 파일이 열릴때 같이 실행되는 css -->
+    <!-- <link rel="stylesheet" href="/"> -->
+</th:block>
+
+<th:block layout:fragment="contentFragment">
+    <!-- html 코드 작성 -->
+    <div class="row text-center">
+        <div class="col">
+
+            <div class="row" style="border: 1px solid black; height: 500px;">
+
+                <div class="col-8" style="border: 1px solid red; display: flex; align-items: center; justify-content: center;">
+                    <h3>9시 11시 13시 15시 17시 [선그래프]</h3>
+                </div>
+
+                <div class="col-4">
+
+                    <div class="row" style="border: 1px solid black; height: 500px;">
+                        <div class="col">
+                            <div class="row" style="border: 1px solid red; height: 400px; display: flex; align-items: center; justify-content: center;">
+                                <div class="col">
+                                    <h3>지도</h3>
+                                </div>
+                            </div>
+                            <div class="row" style="border: 1px solid red; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                <div class="col">
+                                    <h3>선택한 곳 시설 이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row" style="border: 1px solid black; height: 350px;">
+                <div class="col-4" style="border: 1px solid red; display: flex; align-items: center; justify-content: center;">
+                    <h3>서초구 평균 온도 및 습도 [표]</h3>
+                </div>
+
+                <div class="col-4" style="border: 1px solid red; display: flex; align-items: center; justify-content: center;">
+                    <h3>미세먼지 / 초미세먼지 / 통합실내지수 / 소음 등급별 원그래프</h3>
+                </div>
+
+                <div class="col-4" style="border: 1px solid red; display: flex; align-items: center; justify-content: center;">
+                    <h3>가장 쾌적한 곳 순위</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</th:block>
+
+<th:block layout:fragment="content_js">
+    <!-- html 파일이 열릴때 같이 실행되는 js -->
+    <!-- <script src="/"></script> -->
+</th:block>
+
+</html>

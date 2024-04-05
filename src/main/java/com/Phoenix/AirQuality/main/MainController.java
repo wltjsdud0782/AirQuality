@@ -10,7 +10,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String main(){
-        return "content/main/home";
+        return "content/home";
 
 
     }
