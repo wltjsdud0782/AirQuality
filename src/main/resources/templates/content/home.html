@@ -4,33 +4,37 @@
 
 <th:block layout:fragment="content_css">
     <!-- html 파일이 열릴때 같이 실행되는 css -->
-    <!-- <link rel="stylesheet" href="/"> -->
+    <link rel="stylesheet" href="/css/home.css">
 </th:block>
 
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
-    <div>
-        <canvas id="pie"></canvas>
-    </div>
     <div class="row text-center">
         <div class="col">
 
             <div class="row" style="height: 500px;">
 
-                <div class="col-8" style="background-color: lavender; display: flex; align-items: center; justify-content: center;">
-                    <h3>9시 11시 13시 15시 17시 [선그래프]</h3>
+                <div class="col-8"
+                    style="display: flex; align-items: center; justify-content: center;">
+                    <div class="layer">
+                        <canvas id="line-chart" style="width: 300%; height: 100%;"></canvas>
+                        <h4>[9 / 11 / 13 / 15 / 17] 선 그래프</h4>
+                    </div>
                 </div>
 
                 <div class="col-4">
 
                     <div class="row" style="height: 500px;">
                         <div class="col">
-                            <div class="row" style="background-color: azure; height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <div class="row"
+                                style="height: 400px; display: flex; align-items: center; justify-content: center;">
                                 <div class="col">
-                                    <h3>지도</h3>
+                                    <!-- 일시적 사진 -->
+                                    <img src="/image.png" alt="" style="width: 80%;">
                                 </div>
                             </div>
-                            <div class="row" style="background-color: lavenderblush; height: 100px; display: flex; align-items: center; justify-content: center;">
+                            <div class="row"
+                                style="background-color: lavenderblush; height: 100px; display: flex; align-items: center; justify-content: center;">
                                 <div class="col">
                                     <h3>선택한 곳 시설 이름</h3>
                                 </div>
@@ -43,18 +47,46 @@
 
 
             <div class="row" style="height: 350px;">
-                <div class="col-4" style="background-color: lemonchiffon; display: flex; align-items: center; justify-content: center;">
-                    <h3>서초구 평균 온도 및 습도 [표]</h3>
+                <div class="col-4"
+                    style="display: flex; align-items: center; justify-content: center;">
+                    <div class="layer">
+                        <canvas id="mixed-chart" style="width: 200%; height: 100%;"></canvas>
+                    </div>
                 </div>
 
-                <div class="col-4" style="background-color: lightgray; display: flex; align-items: center; justify-content: center;">
-                    <h3>미세먼지 / 초미세먼지 / 통합실내지수<br>
-                        / 소음 등급별 원그래프</h3>
-                    
+                <div class="col-4"
+                    style="display: flex; align-items: center; justify-content: center;">
+                    <div class="layer large-layer">
+                        <canvas id="pie-chart" style="width: 100%; height: 100%;"></canvas>
+                    </div>
                 </div>
 
-                <div class="col-4" style="background-color: lightblue; display: flex; align-items: center; justify-content: center;">
-                    <h3>가장 쾌적한 곳 순위</h3>
+                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+                    <table class="rank-table">
+                        <tr>
+                            <td colspan="2"><h4>서초구 내 가장 쾌적한 곳 1-5위</h4></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1위</th>
+                            <td>내용이 들어갑니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2위</th>
+                            <td>내용이 들어갑니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3위</th>
+                            <td>내용이 들어갑니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4위</th>
+                            <td>내용이 들어갑니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5위</th>
+                            <td>내용이 들어갑니다.</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
