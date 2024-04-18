@@ -2,3 +2,7 @@
     border: 3px solid black;
     font-size: 20pt;
 }
+
+.layout-fragment-default{
+    display: flex; align-items: center; justify-content: center;
+}
