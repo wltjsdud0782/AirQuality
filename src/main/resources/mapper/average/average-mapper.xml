@@ -4,11 +4,39 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="averageMapper">
     <resultMap id="average" type="com.Phoenix.AirQuality.average.vo.AverageVO">
-        <id column="AVERAGE_CODE" property="averageCode"/>
-        <result column="AVERAGE_RESULT" property="averageResult"/>
-        <result column="AVERAGE_NAME" property="averageName"/>
+        <result column="DAY" property="day"/>
+        <result column="TEM_AVG" property="temAvg"/>
+        <result column="HUM_AVG" property="humAvg"/>
     </resultMap>
-	
+
+<!--   오늘 제외 이전 5일간의 평균 온도, 습도  -->
+    <select id="selectAvg" resultMap="average">
+        SELECT
+        COALESCE(SUBSTRING(TEMAVG, 1, 5))AS TEM_AVG,
+        COALESCE(SUBSTRING(HUMAVG, 1, 5))AS HUM_AVG,
+        DATE_FORMAT(DAYS.DAY, '%m월 %d일') AS DAY
+        FROM (
+        SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 DAY), '%Y-%m-%d') AS DAY
+        UNION ALL
+        SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 4 DAY), '%Y-%m-%d')
+        UNION ALL
+        SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 3 DAY), '%Y-%m-%d')
+        UNION ALL
+        SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 2 DAY), '%Y-%m-%d')
+        UNION ALL
+        SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d')
+        ) AS DAYS
+        LEFT JOIN (
+        SELECT DATE(DATE_TIME) AS DAY, AVG(temperature) AS TEMAVG, AVG(HUMIDITY) AS HUMAVG
+        FROM temandhum
+        WHERE DATE_TIME &lt; CURDATE() AND DATE_TIME >= DATE_SUB(CURDATE(), INTERVAL 5 DAY)
+        GROUP BY DATE(DATE_TIME)
+        ) AS temandhum ON DAYS.DAY = temandhum.DAY
+        GROUP BY DAY(DAYS.DAY)
+        ORDER BY DAY(DAYS.DAY);
+    </select>
+
+
 </mapper>
 
 

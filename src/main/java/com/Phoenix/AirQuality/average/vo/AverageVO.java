@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AverageVO {
-    private int averageCode;
-    private double averageResult;
-    private String averageName;
+    private String day;
+    private double temAvg;
+    private double humAvg;
 }
