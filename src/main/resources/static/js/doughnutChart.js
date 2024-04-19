@@ -38,7 +38,7 @@ function doughnutChart(){
             options: {
                 title: {
                     display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    text: '현재 소음 등급 비율'
                 }
             }
         });
@@ -58,7 +58,7 @@ function doughnutChart(){
             options: {
                 title: {
                     display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    text: '현재 소음 등급 비율'
                 }
             }
         });
@@ -159,25 +159,22 @@ let play = setInterval(()=>{
         },700)
     }
     
-    
+},2500)
 
-},2000)
-// wrap.addEventListener('mouseover',(event) => {clearInterval(play)})
-// wrap.addEventListener('mouseout',(event) => {setInterval(()=>{
-//     cnt++
 
-//     wrap.style.marginLeft = (-cnt * 100) + "%";
-//     wrap.style.transition = "all 0.6s";
+wrap.addEventListener('mouseover',(event) => {clearInterval(play)})
+wrap.addEventListener('mouseout',(event) => {play = setInterval(()=>{
+    cnt++
+    wrap.style.marginLeft = (-cnt * 100) + "%";
+    wrap.style.transition = "all 0.6s";
 
-//     if(cnt == 4){
-//         setTimeout(()=>{
-//             wrap.style.transition = "0s";
-//             wrap.style.marginLeft = "0";
+    if(cnt == 4){
+        setTimeout(()=>{
+            wrap.style.transition = "0s";
+            wrap.style.marginLeft = "0";
             
-//             cnt = 0;
-//         },700)
-//     }
-    
-    
+            cnt = 0;
+        },700)
+    }    
 
-// },2000)})
+},2000)})
