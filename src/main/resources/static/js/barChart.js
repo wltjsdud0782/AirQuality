@@ -36,29 +36,31 @@ function barChart() {
                         label: "실시간 온도",
                         type: "line",
                         borderColor: "#8e5ea2",
-                        data: [15, 20, 23, 28],
+                        data: [15, 20, 23, 28, 34],
                         fill: false
                     }, {
                         label: "실시간 습도",
                         type: "line",
                         borderColor: "#3e95cd",
-                        data: [30, 15, 15, 20],
+                        data: [30, 15, 15, 20, 20],
                         fill: false
                     }, {
                         label: "평균 온도",
                         type: "bar",
-                        backgroundColor: "rgba(0,0,0,0.2)",
+                        backgroundColor: "#c45850",
                         data: avgDataList.temAvg,
                     }, {
                         label: "평균 습도",
                         type: "bar",
-                        backgroundColor: "rgba(0,0,0,0.2)",
+                        backgroundColor: "#3e95cd",
                         backgroundColorHover: "#3e95cd",
                         data: avgDataList.humAvg
                     }
                     ]
                 },
                 options: {
+                    // 바 굵기 ▼
+                    maxBarThickness : 30,
                     title: {
                         display: true,
                         text: 'Population growth (millions): Europe & Africa'
