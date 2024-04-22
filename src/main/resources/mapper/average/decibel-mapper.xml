@@ -20,7 +20,14 @@
         FROM decibel_info
         WHERE DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
         GROUP BY DECIBEL_GRADE
-        ORDER BY FIELD(DECIBEL_GRADE, '매우좋음', '좋음', '보통', '나쁨', '매우나쁨');
+        ORDER BY FIELD(DECIBEL_GRADE, '매우좋음', '좋음', '보통', '나쁨', '매우나쁨')
+    </select>
+
+<!--  오늘 기준 시리얼 넘버가 일치하는 데시벨 정보  -->
+    <select id="serialDecibel" resultMap="decibel">
+        SELECT * FROM decibel_info
+        WHERE SERIAL_NO = #{serialNo}
+        AND DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
     </select>
 
 </mapper>

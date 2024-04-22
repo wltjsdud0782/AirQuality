@@ -37,7 +37,7 @@
         GROUP BY DATE(DATE_TIME)
         ) AS temandhum ON DAYS.DAY = temandhum.DAY
         GROUP BY DAY(DAYS.DAY)
-        ORDER BY DAY(DAYS.DAY);
+        ORDER BY DAY(DAYS.DAY)
     </select>
 
 
