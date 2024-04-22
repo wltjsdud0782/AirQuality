@@ -19,12 +19,14 @@ function barChart() {
         //fetch 통신 후 실행 영역
         .then((data) => {//data -> controller에서 리턴되는 데이터!
             //믹스 차트
-            let avgDataList = {day : [], temAvg : [], humAvg : []}
+            let avgDataList = {day : [], temAvg : [], humAvg : [], maxTem : [], minTem : []}
 
             data.forEach(e => {
                 avgDataList.day.push(e.day)
                 avgDataList.temAvg.push(e.temAvg)
                 avgDataList.humAvg.push(e.humAvg)
+                avgDataList.maxTem.push(e.maxTem)
+                avgDataList.minTem.push(e.minTem)
             });
 
             // 실시간온도, 실시간 습도 수정해야함!!!!!!!!!!!!!!!
@@ -33,16 +35,16 @@ function barChart() {
                 data: {
                     labels: avgDataList.day,
                     datasets: [{
-                        label: "실시간 온도",
+                        label: "최고온도",
                         type: "line",
-                        borderColor: "#8e5ea2",
-                        data: [15, 20, 23, 28, 34],
+                        borderColor: "#e8c3b9",
+                        data: avgDataList.maxTem,
                         fill: false
                     }, {
-                        label: "실시간 습도",
+                        label: "최저온도",
                         type: "line",
-                        borderColor: "#3e95cd",
-                        data: [30, 15, 15, 20, 20],
+                        borderColor: "#3cba9f",
+                        data: avgDataList.minTem,
                         fill: false
                     }, {
                         label: "평균 온도",

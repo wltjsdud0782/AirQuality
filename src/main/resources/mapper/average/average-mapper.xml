@@ -7,6 +7,8 @@
         <result column="DAY" property="day"/>
         <result column="TEM_AVG" property="temAvg"/>
         <result column="HUM_AVG" property="humAvg"/>
+        <result column="MAX_TEM" property="maxTem"/>
+        <result column="MIN_TEM" property="minTem"/>
     </resultMap>
 
 <!--   오늘 제외 이전 5일간의 평균 온도, 습도  -->
@@ -14,6 +16,8 @@
         SELECT
         COALESCE(SUBSTRING(TEMAVG, 1, 5))AS TEM_AVG,
         COALESCE(SUBSTRING(HUMAVG, 1, 5))AS HUM_AVG,
+        COALESCE(MAXTEM)AS MAX_TEM,
+        COALESCE(MINTEM)AS MIN_TEM,
         DATE_FORMAT(DAYS.DAY, '%m월 %d일') AS DAY
         FROM (
         SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 DAY), '%Y-%m-%d') AS DAY
@@ -27,7 +31,7 @@
         SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%Y-%m-%d')
         ) AS DAYS
         LEFT JOIN (
-        SELECT DATE(DATE_TIME) AS DAY, AVG(temperature) AS TEMAVG, AVG(HUMIDITY) AS HUMAVG
+        SELECT DATE(DATE_TIME) AS DAY, AVG(temperature) AS TEMAVG, AVG(HUMIDITY) AS HUMAVG, MAX(TEMPERATURE) AS MAXTEM, MIN(TEMPERATURE) AS MINTEM
         FROM temandhum
         WHERE DATE_TIME &lt; CURDATE() AND DATE_TIME >= DATE_SUB(CURDATE(), INTERVAL 5 DAY)
         GROUP BY DATE(DATE_TIME)
