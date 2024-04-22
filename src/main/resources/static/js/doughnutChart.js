@@ -42,26 +42,6 @@ function doughnutChart(){
                 }
             }
         });
-
-        new Chart(document.querySelector('#doughnut-chart5'), {
-            type: 'doughnut',
-            data: {
-                labels: ["매우좋음", "좋음", "보통", "나쁨", "매우나쁨"],
-                datasets: [
-                    {
-                        label: "소음 등급",
-                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                        data: decibelPercentList
-                    }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: '현재 소음 등급 비율'
-                }
-            }
-        });
         
     })
     //fetch 통신 실패 시 실행 영역
@@ -120,6 +100,26 @@ new Chart(document.querySelector('#doughnut-chart4'), {
                 label: "Population (millions)",
                 backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
                 data: [2478, 5267, 734, 784, 243]
+            }
+        ]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
+        }
+    }
+});
+
+new Chart(document.querySelector('#doughnut-chart5'), {
+    type: 'doughnut',
+    data: {
+        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+        datasets: [
+            {
+                label: "Population (millions)",
+                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                data: [2478, 234, 734, 784, 433]
             }
         ]
     },
