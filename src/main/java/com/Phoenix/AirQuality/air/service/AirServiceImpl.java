@@ -14,10 +14,16 @@ public class AirServiceImpl implements AirService{
     @Autowired
     private SqlSessionTemplate sqlSession;
 
-    //공기질 전체 보기
+    //PM 전체 보기
     @Override
-    public List<AirQualityVO> selectAirQuality() {
-        return sqlSession.selectList("airMapper.selectAirQuality");
+    public List<AirQualityVO> selectPm() {
+        return sqlSession.selectList("airMapper.selectPM");
+    }
+
+    //FPM 전체 보기
+    @Override
+    public List<AirQualityVO> selectFpm() {
+        return sqlSession.selectList("airMapper.selectFPM");
     }
 
     //통합실내지수 전체 보기
