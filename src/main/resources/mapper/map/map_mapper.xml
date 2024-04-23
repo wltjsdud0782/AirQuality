@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="mapMapper">
+    <resultMap id="map" type="com.Phoenix.AirQuality.air.vo.MapVO">
+        <id column="SERIAL_NO" property="serialNo"/>
+        <result column="STATION_NAME" property="stationName"/>
+        <result column="LAT" property="lat"/>
+        <result column="LON" property="lon"/>
+    </resultMap>
+<!-- map 그리기 위한 시리얼번호, 스테이션명, 위도, 경도 -->
+    <select id="selectMap" resultMap="map">
+        SELECT SERIAL_NO
+            , STATION_NAME
+            , LAT
+            , LON
+        FROM MAP;
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
