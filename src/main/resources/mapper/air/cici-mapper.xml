@@ -9,15 +9,23 @@
         <result column="CICI_CODE" property="ciciCode"/>
         <result column="CICI_GRADE" property="ciciGrade"/>
         <result column="SERIAL_NO" property="serialNo"/>
+
+        <result column="CICI_PERCENT" property="ciciPercent"/>
     </resultMap>
 
-    <!-- 통합실내지수 전체 보기 -->
+    <!-- 통합실내지수 전체 보기 (도넛 그래프) -->
     <select id="selectCici" resultMap="cici">
-        SELECT CICI_NO
-            , CICI_CODE
-            , CICI_GRADE
-            , SERIAL_NO
-        FROM CICI
+        SELECT CICI_GRADE
+            , DATE_FORMAT(CICI_TIME, '%Y%m%d') AS RESULT_DATE
+            , (COUNT(CICI_GRADE) / (
+                SELECT COUNT(*)
+                FROM cici
+                WHERE DATE_FORMAT(CICI_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d'))
+                ) * 100 AS CICI_PERCENT
+        FROM cici
+        WHERE DATE_FORMAT(CICI_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        GROUP BY CICI_GRADE
+        ORDER BY FIELD(CICI_GRADE, '좋음', '보통', '나쁨', '매우 나쁨');
     </select>
 
     <!-- 가장 높은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->

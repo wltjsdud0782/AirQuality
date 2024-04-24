@@ -8,4 +8,6 @@ public class CiciVO {
     private int ciciCode;
     private String ciciGrade;
     private String serialNo;
+
+    private double ciciPercent;
 }

@@ -13,19 +13,39 @@
         <result column="CO2_CODE" property="co2Code"/>
         <result column="VOCS_CODE" property="vocsCode"/>
         <result column="SERIAL_NO" property="serialNo"/>
+
+        <result column="PM_PERCENT" property="pmPercent"/>
+        <result column="FPM_PERCENT" property="fpmPercent"/>
     </resultMap>
 
-    <!-- 공기질 데이터 전체 보기-->
-    <select id="selectAirQuality" resultMap="airQuality">
-        SELECT AIR_NO
-            , PM_CODE
-            , PM_GRADE
-            , FPM_CODE
-            , FPM_GRADE
-            , CO2_CODE
-            , VOCS_CODE
-            , SERIAL_NO
-        FROM AIR_QUALITY
+    <!-- PM 데이터 불러오기 (도넛 그래프) -->
+    <select id="selectPM" resultMap="airQuality">
+        SELECT PM_GRADE
+            , DATE_FORMAT(AIR_TIME, '%Y%m%d') AS RESULT_DATE
+            , (COUNT(PM_GRADE) / (
+                SELECT COUNT(*)
+                FROM air_quality
+                WHERE DATE_FORMAT(AIR_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d'))
+                ) * 100 AS PM_PERCENT
+        FROM air_quality
+        WHERE DATE_FORMAT(AIR_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        GROUP BY PM_GRADE
+        ORDER BY FIELD(PM_GRADE, '좋음', '보통', '나쁨', '매우 나쁨');
+    </select>
+
+    <!-- FPM 데이터 불러오기 (도넛 그래프) -->
+    <select id="selectFPM" resultMap="airQuality">
+        SELECT FPM_GRADE
+            , DATE_FORMAT(AIR_TIME, '%Y%m%d') AS RESULT_DATE
+            , (COUNT(FPM_GRADE) / (
+                SELECT COUNT(*)
+                FROM air_quality
+                WHERE DATE_FORMAT(AIR_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d'))
+                ) * 100 AS FPM_PERCENT
+        FROM air_quality
+        WHERE DATE_FORMAT(AIR_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        GROUP BY FPM_GRADE
+        ORDER BY FIELD(FPM_GRADE, '좋음', '보통', '나쁨', '매우 나쁨');
     </select>
 
 

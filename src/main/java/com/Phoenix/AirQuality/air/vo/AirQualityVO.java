@@ -12,4 +12,7 @@ public class AirQualityVO {
     private float co2Code;
     private int vocsCode;
     private String serialNo;
+
+    private double pmPercent;
+    private double fpmPercent;
 }

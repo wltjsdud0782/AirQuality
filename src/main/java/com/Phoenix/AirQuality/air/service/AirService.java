@@ -7,8 +7,11 @@ import java.util.List;
 
 public interface AirService {
 
-    //공기질 전체 보기
-    List<AirQualityVO> selectAirQuality();
+    //PM 전체 보기
+    List<AirQualityVO> selectPm();
+
+    //FPM 전체 보기
+    List<AirQualityVO> selectFpm();
 
     //통합실내지수 전체 보기
     List<CiciVO> selectCici();
