@@ -37,25 +37,25 @@ function barChart() {
                     datasets: [{
                         label: "최고온도",
                         type: "line",
-                        borderColor: "#e8c3b9",
+                        borderColor: "#9EA1D4",
                         data: avgDataList.maxTem,
                         fill: false
                     }, {
                         label: "최저온도",
                         type: "line",
-                        borderColor: "#3cba9f",
+                        borderColor: "#987554",
                         data: avgDataList.minTem,
                         fill: false
                     }, {
                         label: "평균 온도",
                         type: "bar",
-                        backgroundColor: "#c45850",
+                        backgroundColor: "#FD8A8A",
                         data: avgDataList.temAvg,
                     }, {
                         label: "평균 습도",
                         type: "bar",
-                        backgroundColor: "#3e95cd",
-                        backgroundColorHover: "#3e95cd",
+                        backgroundColor: "#ABD1D1",
+                        // backgroundColorHover: "#3e95cd",
                         data: avgDataList.humAvg
                     }
                     ]

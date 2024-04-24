@@ -32,7 +32,7 @@ function doughnutChart() {
                     datasets: [
                         {
                             label: "소음 등급",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: decibelPercentList
                         }
                     ]
@@ -103,7 +103,7 @@ function doughnutChart() {
                     datasets: [
                         {
                             label: "미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: pm
                         }
                     ]
@@ -124,7 +124,7 @@ function doughnutChart() {
                     datasets: [
                         {
                             label: "초미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: fpm
                         }
                     ]
@@ -145,7 +145,7 @@ function doughnutChart() {
                     datasets: [
                         {
                             label: "통합실내지수",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: cici
                         }
                     ]
@@ -166,7 +166,7 @@ function doughnutChart() {
                     datasets: [
                         {
                             label: "미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: pm
                         }
                     ]
