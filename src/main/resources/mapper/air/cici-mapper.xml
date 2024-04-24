@@ -11,6 +11,8 @@
         <result column="SERIAL_NO" property="serialNo"/>
 
         <result column="CICI_PERCENT" property="ciciPercent"/>
+
+        <result column="STATION_NAME" property="stationName"/>
     </resultMap>
 
     <!-- 통합실내지수 전체 보기 (도넛 그래프) -->
@@ -28,23 +30,26 @@
         ORDER BY FIELD(CICI_GRADE, '좋음', '보통', '나쁨', '매우 나쁨');
     </select>
 
-    <!-- 가장 높은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->
-    <select id="bestCiciTop10" resultMap="cici">
-    SELECT SERIAL_NO
-        , CICI_CODE
-        , CICI_GRADE
-    FROM CICI
-    ORDER BY CICI_CODE DESC LIMIT 10
+    <!-- 가장 높은 실내통합지수 top 5 -->
+    <select id="bestCiciTop5" resultMap="cici">
+        SELECT CICI_CODE
+            , STATION_NAME
+            , C.SERIAL_NO
+        FROM CICI C
+        INNER JOIN MAP M
+        ON C.SERIAL_NO = M.SERIAL_NO
+        WHERE DATE_FORMAT(CICI_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        ORDER BY CICI_CODE DESC LIMIT 5;
     </select>
 
     <!-- 가장 낮은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->
-    <select id="worstCiciTop10" resultMap="cici">
-    SELECT SERIAL_NO
-        , CICI_CODE
-        , CICI_GRADE
-    FROM CICI
-    ORDER BY CICI_CODE ASC LIMIT 10
-    </select>
+<!--    <select id="worstCiciTop10" resultMap="cici">-->
+<!--    SELECT SERIAL_NO-->
+<!--        , CICI_CODE-->
+<!--        , CICI_GRADE-->
+<!--    FROM CICI-->
+<!--    ORDER BY CICI_CODE ASC LIMIT 10-->
+<!--    </select>-->
 
 
 </mapper>

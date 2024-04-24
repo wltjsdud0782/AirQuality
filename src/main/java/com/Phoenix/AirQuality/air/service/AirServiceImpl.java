@@ -34,15 +34,9 @@ public class AirServiceImpl implements AirService{
 
     // ----------------------------------------------------------------------------------------- //
 
-    //가장 높은 실내통합지수 top 10
+    //가장 높은 실내통합지수 top 5
     @Override
-    public List<CiciVO> bestCiciTop10() {
-        return sqlSession.selectList("ciciMapper.bestCiciTop10");
-    }
-
-    //가장 낮은 실내통합지수 top 10
-    @Override
-    public List<CiciVO> worstCiciTop10() {
-        return sqlSession.selectList("ciciMapper.worstCiciTop10");
+    public List<CiciVO> bestCiciTop5() {
+        return sqlSession.selectList("ciciMapper.bestCiciTop5");
     }
 }

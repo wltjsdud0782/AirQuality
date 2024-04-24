@@ -10,4 +10,6 @@ public class CiciVO {
     private String serialNo;
 
     private double ciciPercent;
+
+    private String stationName;
 }
