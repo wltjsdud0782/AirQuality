@@ -3,7 +3,7 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="mapMapper">
-    <resultMap id="map" type="com.Phoenix.AirQuality.air.vo.MapVO">
+    <resultMap id="map" type="com.Phoenix.AirQuality.map.vo.MapVO">
         <id column="SERIAL_NO" property="serialNo"/>
         <result column="STATION_NAME" property="stationName"/>
         <result column="LAT" property="lat"/>
