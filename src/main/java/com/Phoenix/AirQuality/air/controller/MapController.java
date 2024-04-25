@@ -4,10 +4,7 @@ import com.Phoenix.AirQuality.air.service.MapServiceImpl;
 import com.Phoenix.AirQuality.air.vo.MapVO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,12 +14,10 @@ public class MapController {
     @Resource(name="mapService")
     private MapServiceImpl mapService;
 
-@ResponseBody
-@GetMapping("/selectMap")
-   public List<MapVO> selectMap(){
-      List<MapVO> map=mapService.selectMap();
-    System.out.println(map);
-    return null;
-}
 
+    @ResponseBody
+    @PostMapping("/selectMap")
+    public List<MapVO> selectMap(){
+       return mapService.selectMap();
+     }
 }
