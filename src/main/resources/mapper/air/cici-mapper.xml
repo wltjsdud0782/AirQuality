@@ -11,7 +11,6 @@
         <result column="SERIAL_NO" property="serialNo"/>
 
         <result column="CICI_PERCENT" property="ciciPercent"/>
-
         <result column="STATION_NAME" property="stationName"/>
     </resultMap>
 
@@ -32,15 +31,25 @@
 
     <!-- 가장 높은 실내통합지수 top 5 -->
     <select id="bestCiciTop5" resultMap="cici">
-        SELECT CICI_CODE
+        SELECT ROUND(AVG(CICI_CODE), 2) AS CICI_CODE
             , STATION_NAME
             , C.SERIAL_NO
         FROM CICI C
         INNER JOIN MAP M
         ON C.SERIAL_NO = M.SERIAL_NO
-        WHERE DATE_FORMAT(CICI_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        WHERE DATE_FORMAT(CICI_TIME, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')
+        GROUP BY STATION_NAME
         ORDER BY CICI_CODE DESC LIMIT 5;
     </select>
+
+<!--    SELECT CICI_CODE-->
+<!--    , STATION_NAME-->
+<!--    , C.SERIAL_NO-->
+<!--    FROM CICI C-->
+<!--    INNER JOIN MAP M-->
+<!--    ON C.SERIAL_NO = M.SERIAL_NO-->
+<!--    WHERE DATE_FORMAT(CICI_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')-->
+<!--    ORDER BY CICI_CODE DESC LIMIT 5;-->
 
     <!-- 가장 낮은 실내통합지수 top 10  /  달마다 비교하게 DATE 추가 필요 -->
 <!--    <select id="worstCiciTop10" resultMap="cici">-->

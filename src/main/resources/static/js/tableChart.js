@@ -25,12 +25,15 @@ function tableChart() {
     .then((data) => {//data -> controller에서 리턴되는 데이터!
       console.log(data)
 
+      const date = new Date();
+      let month = date.getMonth()+1;
+
       const titleChart = document.querySelector('.titleChart');
       titleChart.innerHTML = '';
       let str_1 = '';
       str_1 += `
         <tr>
-          <td colspan="3"><h4>서초구 내 가장 쾌적한 곳 1-5위</h4></td>
+          <td colspan="3"><h4>${month}월, 서초구 내 가장 쾌적한 곳 1-5위</h4></td>
         </tr>
         <tr>
           <th>순위</th>
