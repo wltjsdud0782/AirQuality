@@ -19,18 +19,20 @@ function doughnutChart() {
         //fetch 통신 후 실행 영역
         .then((data) => {//data -> controller에서 리턴되는 데이터!
             let decibelPercentList = []
+            let decibelGradeName = []
             data.forEach(e => {
                 decibelPercentList.push(e.decibelPercent)
+                decibelGradeName.push(e.decibelGrade)
             });
 
             new Chart(document.querySelector('#doughnut-chart1'), {
                 type: 'doughnut',
                 data: {
-                    labels: ["매우좋음", "좋음", "보통", "나쁨", "매우나쁨"],
+                    labels: decibelGradeName,
                     datasets: [
                         {
                             label: "소음 등급",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: decibelPercentList
                         }
                     ]
@@ -68,38 +70,40 @@ function doughnutChart() {
         })
         //fetch 통신 후 실행 영역
         .then((data) => {//data -> controller에서 리턴되는 데이터!
-            console.log(data);
 
             //미세먼지 데이터 넣기
             const pm = [];
+            const pmName = [];
             for (const each of data.PM) {
                 pm.push(each.pmPercent);
+                pmName.push(each.pmGrade)
             }
 
             //초미세먼지 데이터 넣기
             const fpm = [];
+            const fpmName = []
             for (const each of data.FPM) {
                 fpm.push(each.fpmPercent);
+                fpmName.push(each.fpmGrade)
             }
 
-            //초미세먼지 데이터 넣기
+            //CICI 데이터 넣기
             const cici = [];
+            const ciciName = [];
             for (const each of data.CICI) {
-                cici.push(each.ciciPercent);
+                cici.push(each.ciciPercent)
+                ciciName.push(each.ciciGrade)
             }
-
-            //등급
-            const grade = ["좋음", "보통", "나쁨", "매우 나쁨"];
 
             //미세먼지
             new Chart(document.querySelector('#doughnut-chart2'), {
                 type: 'doughnut',
                 data: {
-                    labels: grade,
+                    labels: pmName,
                     datasets: [
                         {
                             label: "미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: pm
                         }
                     ]
@@ -116,11 +120,11 @@ function doughnutChart() {
             new Chart(document.querySelector('#doughnut-chart3'), {
                 type: 'doughnut',
                 data: {
-                    labels: grade,
+                    labels: fpmName,
                     datasets: [
                         {
                             label: "초미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: fpm
                         }
                     ]
@@ -137,11 +141,11 @@ function doughnutChart() {
             new Chart(document.querySelector('#doughnut-chart4'), {
                 type: 'doughnut',
                 data: {
-                    labels: grade,
+                    labels: ciciName,
                     datasets: [
                         {
                             label: "통합실내지수",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: cici
                         }
                     ]
@@ -158,11 +162,11 @@ function doughnutChart() {
             new Chart(document.querySelector('#doughnut-chart5'), {
                 type: 'doughnut',
                 data: {
-                    labels: grade,
+                    labels: pmName,
                     datasets: [
                         {
                             label: "미세먼지(㎍/㎥)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                            backgroundColor: ["#7fd2da", "#e989ab", "#e9b546", "#9d94f4", "#929292"],
                             data: pm
                         }
                     ]

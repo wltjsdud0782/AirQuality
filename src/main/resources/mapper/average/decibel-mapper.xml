@@ -13,14 +13,17 @@
 
 <!--  데시벨 백분률  -->
     <select id="decibelPie" resultMap="decibel">
-        SELECT
-        DECIBEL_GRADE
+        SELECT DECIBEL_GRADE
         , DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') AS RESULT_DATE
-        , (COUNT(DECIBEL_GRADE) * 100 / (SELECT COUNT(DECIBEL_GRADE) FROM decibel_info)) AS DECIBEL_PERCENT
-        FROM decibel_info
+        , (COUNT(DECIBEL_GRADE) / (
+        SELECT COUNT(*)
+        FROM DECIBEL_INFO
+        WHERE DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d'))
+        ) * 100 AS DECIBEL_PERCENT
+        FROM DECIBEL_INFO
         WHERE DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
         GROUP BY DECIBEL_GRADE
-        ORDER BY FIELD(DECIBEL_GRADE, '매우좋음', '좋음', '보통', '나쁨', '매우나쁨')
+        ORDER BY FIELD(DECIBEL_GRADE, '매우좋음', '좋음', '보통', '나쁨', '매우나쁨');
     </select>
 
 <!--  오늘 기준 시리얼 넘버가 일치하는 데시벨 정보  -->

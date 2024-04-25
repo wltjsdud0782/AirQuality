@@ -18,10 +18,10 @@ public interface AirService {
 
     // ----------------------------------------------------------------------------------------- //
 
-    //가장 높은 실내통합지수 top 10
-    List<CiciVO> bestCiciTop10();
+    //가장 높은 실내통합지수 top 5
+    List<CiciVO> bestCiciTop5();
 
     //가장 낮은 실내통합지수 top 10
-    List<CiciVO> worstCiciTop10();
+//    List<CiciVO> worstCiciTop10();
 
 }
