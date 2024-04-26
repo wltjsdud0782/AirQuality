@@ -35,7 +35,7 @@ fetch('/map/selectMap', { //요청경로
 function drawMap(data){
     const container = document.querySelector('#map');
     const options = {
-    center: new kakao.maps.LatLng(37.4887, 127.0214),//지도의 중심좌표
+    center: new kakao.maps.LatLng(37.4887, 127.0214), //지도의 중심좌표 (햇님어린이집)
     level: 7 //지도의 레벨(확대, 축소 정도) : 숫자가 작을수록 화면확대됨(1:20m 6: 500m, 7: 1km, 15:128km, 7하고 사이즈 조금 더 키우기)
     };
   
@@ -52,21 +52,17 @@ function drawMap(data){
       positions.push(each);
     });
 
-      // 마커를 생성합니다
+  // 마커를 생성합니다
   for (var i = 0; i < positions.length; i ++) {
         var marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng,  // 마커를 표시할 위치
-        title : positions[i].title, 
+        title : positions[i].title,     // 마커에 마우스 포인터 이동시 설명내용(스테이션명)
     });
-// 마크에 클릭이벤트 등록하기
-    // kakao.maps.event.addListener(marker, 'click', function(mouseEvent){
-      
-    //    });
-       kakao.maps.event.addListener(marker, 'click', function (){
+       // 마크에 클릭이벤트 등록하기
+        kakao.maps.event.addListener(marker, 'click', function (){
         var title = this.getTitle();
-       document.querySelector('#mark_name').innerHTML=title;
-        
+        document.querySelector('#mark_name').innerHTML=title;
     });
   }
 }
