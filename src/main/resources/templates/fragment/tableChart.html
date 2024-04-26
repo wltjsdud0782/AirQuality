@@ -2,40 +2,42 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <th:block th:fragment="tableFragment">
-    <table class="rank-table text-center">
-        <colgroup>
-            <col width="20%">
-            <col width="*">
-            <col width="30%">
-        </colgroup>
-        <thead class="titleChart">
-            <tr>
-                <td colspan="2"><h4>서초구 내 가장 쾌적한 곳 1-5위</h4></td>
-            </tr>
-        </thead>
-        <tbody class="tableChart">
-            <tr>
-                <th scope="row">1위</th>
-                <td class="best1">내용이 들어갑니다.</td>
-            </tr>
-            <tr>
-                <th scope="row">2위</th>
-                <td class="best2">내용이 들어갑니다.</td>
-            </tr>
-            <tr>
-                <th scope="row">3위</th>
-                <td class="best3">내용이 들어갑니다.</td>
-            </tr>
-            <tr>
-                <th scope="row">4위</th>
-                <td class="best4">내용이 들어갑니다.</td>
-            </tr>
-            <tr>
-                <th scope="row">5위</th>
-                <td class="best5">내용이 들어갑니다.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="rankWrap">
+        <table class="rank-table text-center">
+            <colgroup>
+                <col width="20%">
+                <col width="*">
+                <col width="30%">
+            </colgroup>
+            <thead class="titleChart">
+                <tr>
+                    <td colspan="2"><h4>서초구 내 가장 쾌적한 곳 1-5위</h4></td>
+                </tr>
+            </thead>
+            <tbody class="tableChart">
+                <tr>
+                    <th scope="row">1위</th>
+                    <td class="best1">내용이 들어갑니다.</td>
+                </tr>
+                <tr>
+                    <th scope="row">2위</th>
+                    <td class="best2">내용이 들어갑니다.</td>
+                </tr>
+                <tr>
+                    <th scope="row">3위</th>
+                    <td class="best3">내용이 들어갑니다.</td>
+                </tr>
+                <tr>
+                    <th scope="row">4위</th>
+                    <td class="best4">내용이 들어갑니다.</td>
+                </tr>
+                <tr>
+                    <th scope="row">5위</th>
+                    <td class="best5">내용이 들어갑니다.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>  
 </th:block>
 
 </html>
