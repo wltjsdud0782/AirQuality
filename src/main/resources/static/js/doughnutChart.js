@@ -214,7 +214,7 @@ let play = setInterval(() => {
         }, 700)
     }
 
-}, 2500)
+}, 3000)
 
 
 wrap.addEventListener('mouseover', (event) => { clearInterval(play) })
@@ -233,5 +233,5 @@ wrap.addEventListener('mouseout', (event) => {
             }, 700)
         }
 
-    }, 2000)
+    }, 3000)
 })
