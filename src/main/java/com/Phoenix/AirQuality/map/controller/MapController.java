@@ -17,6 +17,7 @@ public class MapController {
         @Resource(name="mapService")
         private MapServiceImpl mapService;
 
+        //지도 위 경도 불러오기
         @ResponseBody
         @PostMapping("/selectMap")
         public List<MapVO> selectMap(){
