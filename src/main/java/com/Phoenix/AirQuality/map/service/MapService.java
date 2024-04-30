@@ -7,4 +7,7 @@ import java.util.List;
 public interface MapService {
     //    지도 경도, 위도 , 스테이션명, 시리얼번호
     List<MapVO> selectMap();
+
+    // 시리얼번호 상세목록
+    MapVO detailNoSelect(String serialNo);
 }

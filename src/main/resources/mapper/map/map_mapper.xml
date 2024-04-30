@@ -8,6 +8,7 @@
         <result column="STATION_NAME" property="stationName"/>
         <result column="LAT" property="lat"/>
         <result column="LON" property="lon"/>
+        <association property="airQualityVO" resultMap="airMapper.airQuality"/>
     </resultMap>
 
 <!-- map 그리기 위한 시리얼번호, 스테이션명, 위도, 경도 -->
@@ -18,7 +19,15 @@
             , LON
         FROM MAP;
     </select>
-</mapper>
+
+<!--    선택 스테이션명 상세보기-->
+    <select id="detailNoSelect" resultMap="map">
+        SELECT SERIAL_NO
+            , STATION_NAME
+        FROM MAP
+        WHERE SERIAL_NO=#{serialNo};
+    </select>
+   </mapper>
 
 
 

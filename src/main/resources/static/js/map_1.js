@@ -1,6 +1,5 @@
 //지도로 이동하여 바로 data가지러 감
 
-var positions = [];
 fetch('/map/selectMap', { //요청경로
   method: 'POST',
   cache: 'no-cache',
@@ -21,12 +20,13 @@ fetch('/map/selectMap', { //요청경로
   //return response.text(); //컨트롤러에서 return하는 데이터가 없거나 int, String 일 때 사용
   return response.json(); //나머지 경우에 사용
 })
-
 //fetch 통신 후 실행 영역
 .then((data) => {//data -> controller에서 리턴되는 데이터!
-  drawMap(data);     //데이터를 가지고 지도 그리기 및 마크 만드는 함수호출
+  // console.log(data);
+  // console.log(data[0].serialNo);
+  drawMap(data);      //데이터를 가지고 지도 그리기 및 마크 만드는 함수호출
+                      //이동시 가져가야할 데이터와 갈곳
  })
-
 //fetch 통신 실패 시 실행 영역
 .catch(err=>{
   alert('fetch error!\nthen 구문에서 오류가 발생했습니다.\n콘솔창을 확인하세요!');
@@ -44,7 +44,7 @@ function drawMap(data){
     const map = new kakao.maps.Map(container, options);  //지도 생성 및 객체 리턴
   
     //경도 위도 스테이션명 리스트로 만들기
-    // const positions = [];
+    const positions = [];
       data.forEach((element, idx) => {
         const each = {
         serialNo : element.serialNo,
@@ -59,8 +59,7 @@ function drawMap(data){
         var marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng,  // 마커를 표시할 위치
-        title : positions[i].title,    // 마커에 마우스 포인터 이동시 설명내용(스테이션명)
-        serialNo : positions[i].serialNo
+        title : positions[i].title,     // 마커에 마우스 포인터 이동시 설명내용(스테이션명)
     });
        // 마크에 클릭이벤트 등록하기
         kakao.maps.event.addListener(marker, 'click', function (){
@@ -69,32 +68,14 @@ function drawMap(data){
        });
   }
   
+}
+
+  // const btn = document.querySelector(".btn-div")
+  // let str = '' 
+
+  // str += `
+  //   <button type="button" class="btn btn-outline-primary" 
+  //   onclick="location.href='/map/detail'">이동</button> 
+  // ` 
+  // btn.insertAdjacentHTML("afterbegin", str)
   
-}
-
-function move(){
-  const no=document.querySelector("#mark_name").innerHTML;
-  const serial = [];
-  for(var i=0;i<positions.length;i++){
-      if(no==positions[i].title){
-        
-        serialNo =positions[i].serialNo;
-        console.log(serialNo);
-        break;
-      }
-  }
-   const btn = document.querySelector(".btn-div")
-   let str = '' 
-   console.log(serialNo)
-
-   location.href =`/map/detail?serialNo=${serialNo}`
-  //  str += `
-  //    <button type="button" class="btn btn-outline-primary" 
-  //    onclick="location.href='/map/detail?serialNo = ${serialNo}'">이동</button> 
-  //  ` 
-  //  btn.insertAdjacentHTML("afterbegin", str)
-
-}
-
-
-

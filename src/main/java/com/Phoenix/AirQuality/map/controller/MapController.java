@@ -1,13 +1,12 @@
 package com.Phoenix.AirQuality.map.controller;
 
+import com.Phoenix.AirQuality.map.service.MapService;
 import com.Phoenix.AirQuality.map.service.MapServiceImpl;
 import com.Phoenix.AirQuality.map.vo.MapVO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,9 +25,13 @@ public class MapController {
         }
 
         @GetMapping("/detail")
-        public String detail(){
+        public String detail(@RequestParam(name="serialNo") String serialNo, Model model){
+            //,required=false
+            MapVO vo = mapService.detailNoSelect(serialNo);
+            model.addAttribute("mapDetail", vo);
             return "content/detail";
         }
+
     }
 
 
