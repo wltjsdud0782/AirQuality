@@ -16,4 +16,9 @@ public class AverageServiceImpl implements AverageService{
     public List<AverageVO> selectAvg() {
         return sqlSession.selectList("averageMapper.selectAvg");
     }
+
+    @Override
+    public String todayDate() {
+        return sqlSession.selectOne("averageMapper.todayDate");
+    }
 }

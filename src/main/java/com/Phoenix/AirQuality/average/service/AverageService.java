@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AverageService {
     List<AverageVO> selectAvg();
+
+    String todayDate();
 }
