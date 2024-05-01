@@ -28,6 +28,7 @@ public class MapController {
         public String detail(@RequestParam(name="serialNo") String serialNo, Model model){
             //,required=false
             MapVO vo = mapService.detailNoSelect(serialNo);
+            System.out.println(vo);
             model.addAttribute("mapDetail", vo);
             return "content/detail";
         }
