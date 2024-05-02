@@ -9,6 +9,7 @@
         <result column="DECIBEL_GRADE" property="decibelGrade"/>
         <result column="SERIAL_NO" property="serialNo"/>
         <result column="DECIBEL_PERCENT" property="decibelPercent"/>
+        <result column="AVGDECI" property="avgDeci"/>
     </resultMap>
 
 <!--  데시벨 백분률  -->
@@ -28,9 +29,11 @@
 
 <!--  오늘 기준 시리얼 넘버가 일치하는 데시벨 정보  -->
     <select id="serialDecibel" resultMap="decibel">
-        SELECT * FROM decibel_info
+        SELECT
+        AVG(DECIBEL) AVGDECI
+        FROM decibel_info
         WHERE SERIAL_NO = #{serialNo}
-        AND DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+        AND DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d');
     </select>
 
 </mapper>

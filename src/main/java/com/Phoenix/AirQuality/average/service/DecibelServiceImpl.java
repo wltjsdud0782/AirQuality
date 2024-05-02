@@ -16,4 +16,9 @@ public class DecibelServiceImpl implements DecibelService{
     public List<DecibelVO> decibelPie() {
         return sqlSession.selectList("decibelMapper.decibelPie");
     }
+
+    @Override
+    public DecibelVO serialDecibel(String serialNo) {
+        return sqlSession.selectOne("decibelMapper.serialDecibel", serialNo);
+    }
 }

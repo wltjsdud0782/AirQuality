@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DecibelService {
     List<DecibelVO> decibelPie();
+
+    DecibelVO serialDecibel(String serialNo);
 }

@@ -44,3 +44,7 @@
     height: 100%;
     width: 100%;
 }
+
+.right-line{
+    border-right: 2px solid black;
+}
