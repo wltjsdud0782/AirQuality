@@ -1,6 +1,8 @@
 .air-top{
     border: 3px solid black;
     font-size: 20pt;
+    width: 1900px;
+    margin: 0 auto;
 }
 
 .layout-fragment-default{

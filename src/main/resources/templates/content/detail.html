@@ -21,8 +21,8 @@
             <div class="col">
 
 
-                <div class="row">
-                    <div class="col name-box">
+                <div class="row name-box">
+                    <div class="col">
                         [[${mapDetail.stationName}]]
                         <span style="font-size: 11pt;">[[${today}]] 기준</span>
                     </div>
@@ -33,15 +33,14 @@
 
                         <div class="row">
                             <!-- 왼쪽 -->
-                            <div class="col-6">
-                                <div class="row">
-                                    <div class="col column-box">
-                                        선택컬럼명
+                            <div class="col-6 right-line">
+                                <div class="row column-box">
+                                    <div class="col">
+                                        <span>선택컬럼명</span>
                                     </div>
                                 </div>
                                 <div class="row round-div">
                                     <div class="col">
-                                        원
                                         <div class="row">
                                             <div class="col">
                                                 그림
@@ -65,25 +64,25 @@
                                 <div class="row">
                                     <div class="col">
 
-                                        <div class="row">
-                                            <div class="col-6">
+                                        <div class="row right-table-div">
 
+                                            <div class="col-6">
                                                 <div class="row grade-div">
-                                                    <table class="table">
+                                                    <table class="table icon-table">
                                                         <colgroup>
                                                             <col width="30">
                                                             <col width="70">
                                                         </colgroup>
                                                         <tr>
-                                                            <td>아이콘</td>
+                                                            <td><img src="/icon/pm.png" width="100%"></td>
                                                             <td>미세먼지</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>아이콘</td>
+                                                            <td><img src="/icon/fpm.png" width="100%"></td>
                                                             <td>초미세먼지</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>아이콘</td>
+                                                            <td><img src="/icon/cici.png" width="100%"></td>
                                                             <td>통합실내지수</td>
                                                         </tr>
                                                     </table>
@@ -93,34 +92,46 @@
                                             <div class="col-6">
                                                 <div class="row not-grade-div">
                                                     <div class="col">
-                                                        <table class="table">
+                                                        <table class="table icon-table">
                                                             <colgroup>
                                                                 <col width="30">
                                                                 <col width="70">
                                                             </colgroup>
                                                             <tr>
-                                                                <td>아이콘</td>
+                                                                <td><img src="/icon/co2.png" width="100%"></td>
                                                                 <td>이산화탄소</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>아이콘</td>
+                                                                <td><img src="/icon/vocs.png" width="100%"></td>
                                                                 <td>화합성유기화합물</td>
                                                             </tr>
                                                         </table>
                                                     </div>
                                                 </div>
-
                                             </div>
+
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row right-bottom-div">
                                             <div class="col">
                                                 <div class="row fix-div">
-                                                    <table class="table">
+                                                    <table class="table avg-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <td class="right-line">온도 평균</td>
+                                                                <td class="right-line">습도 평균</td>
+                                                                <td>소음 평균</td>
+                                                            </tr>
+                                                        </thead>
                                                         <tr>
-                                                            <td>온도</td>
-                                                            <td>습도</td>
-                                                            <td>소음</td>
+                                                            <td class="right-line">온도</td>
+                                                            <td class="right-line">습도</td>
+                                                            <th:block th:if="${decibelInfo == null}">
+                                                                <td>조회된 데이터가 없습니다.</td>
+                                                            </th:block>
+                                                            <th:block th:unless="${decibelInfo == null}">
+                                                                <td>[[${decibelInfo.avgDeci}]]</td>
+                                                            </th:block>
                                                         </tr>
                                                     </table>
                                                 </div>
