@@ -1,0 +1,46 @@
+.name-box{
+    margin-top: 30px;
+    border: 2px solid black;
+    font-size: 30pt;
+}
+
+.column-box{
+    border: 2px solid black;
+}
+
+.round-div{
+    height: 600px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.bar-div{
+    height: 50px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.grade-div{
+    height: 500px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.not-grade-div{
+    height: 500px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.fix-div{
+    height: 180px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.table{
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}

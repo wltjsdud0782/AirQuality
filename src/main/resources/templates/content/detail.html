@@ -1,19 +1,145 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{fragment/detail_layout}" >
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/detail_layout}">
 
 <th:block layout:fragment="content_css">
     <!-- html 파일이 열릴때 같이 실행되는 css -->
-    <!-- <link rel="stylesheet" href="/"> -->
+    <link rel="stylesheet" href="/css/detail.css">
 </th:block>
 
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
+<<<<<<< HEAD
   <h1>상세화면이 나오는 내용입니다.</h1>
   <h3>[[${mapDetail.serialNo}]]</h3>
 
   
+=======
+    <div class="container-fluid">
+
+        <div class="row text-center">
+            <div class="col">
+
+
+                <div class="row">
+                    <div class="col name-box">
+                        [[${mapDetail.stationName}]]
+                        <span style="font-size: 11pt;">[[${today}]] 기준</span>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col">
+
+                        <div class="row">
+                            <!-- 왼쪽 -->
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col column-box">
+                                        선택컬럼명
+                                    </div>
+                                </div>
+                                <div class="row round-div">
+                                    <div class="col">
+                                        원
+                                        <div class="row">
+                                            <div class="col">
+                                                그림
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                수치
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row bar-div">
+                                    <div class="col">
+                                        등급별 바
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 오른쪽 -->
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col">
+
+                                        <div class="row">
+                                            <div class="col-6">
+
+                                                <div class="row grade-div">
+                                                    <table class="table">
+                                                        <colgroup>
+                                                            <col width="30">
+                                                            <col width="70">
+                                                        </colgroup>
+                                                        <tr>
+                                                            <td>아이콘</td>
+                                                            <td>미세먼지</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>아이콘</td>
+                                                            <td>초미세먼지</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>아이콘</td>
+                                                            <td>통합실내지수</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="row not-grade-div">
+                                                    <div class="col">
+                                                        <table class="table">
+                                                            <colgroup>
+                                                                <col width="30">
+                                                                <col width="70">
+                                                            </colgroup>
+                                                            <tr>
+                                                                <td>아이콘</td>
+                                                                <td>이산화탄소</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>아이콘</td>
+                                                                <td>화합성유기화합물</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="row fix-div">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>온도</td>
+                                                            <td>습도</td>
+                                                            <td>소음</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+>>>>>>> 6f533801f3d2750eb73083315a9f92355872f8fb
 
 
 </th:block>
@@ -22,4 +148,5 @@
     <!-- html 파일이 열릴때 같이 실행되는 js -->
     <!-- <script src="/"></script> -->
 </th:block>
+
 </html>

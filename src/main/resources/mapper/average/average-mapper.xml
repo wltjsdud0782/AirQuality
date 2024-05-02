@@ -40,6 +40,10 @@
         ORDER BY DAY(DAYS.DAY)
     </select>
 
+    <select id="todayDate" resultType="String">
+        SELECT DATE_FORMAT(NOW(), '%Y-%m-%d');
+    </select>
+
 
 </mapper>
 
