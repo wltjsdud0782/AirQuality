@@ -32,9 +32,7 @@ public class MapController {
 
         @GetMapping("/detail")
         public String detail(@RequestParam(name="serialNo") String serialNo, Model model){
-            //,required=false
             MapVO vo = mapService.detailNoSelect(serialNo);
-            System.out.println(vo);
             model.addAttribute("mapDetail", vo);
             model.addAttribute("today", averageService.todayDate());
             model.addAttribute("decibelInfo", decibelService.serialDecibel(serialNo));
