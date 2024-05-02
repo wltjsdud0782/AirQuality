@@ -10,4 +10,5 @@ public class DecibelVO {
     private String serialNo;
 
     private float decibelPercent;
+    private float avgDeci;
 }
