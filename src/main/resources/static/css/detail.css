@@ -1,4 +1,251 @@
-.name-box{
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+*{
+    background-color: #000;
+    color: #fff;
+    font-family: 'SejonghospitalBold';
+    /* border: 1px solid #ccc; */
+}
+.detail-header{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detail-header h4{
+    width: 20%;
+    text-align: center;
+}
+.detail-header h3{
+    width: 60%;
+    text-align: center;
+}
+.detail-header h5{
+    width: 20%;
+    text-align: center;
+}
+.detail-content{
+    display: flex;
+    height: 100%;
+}
+.detail-chart{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid #fff;
+}
+.figure-main{
+    display: flex;
+    padding: 10px;
+
+}
+.detail-figure{
+    width: 50%;
+    height: 100%;
+}
+.mise-div{
+    margin-top: 20px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.mise-div img{
+    margin-right: 50px;
+}
+.mise-div span{
+    font-size: 30px;
+    margin-right: 20px;
+}
+/* 미세먼지 div 끝*/
+
+.chomise-div{
+    margin-top: 20px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.chomise-div img{
+    margin-right: 50px;
+}
+.chomise-div span{
+    font-size: 30px;
+    margin-right: 20px;
+}
+/* 초미세먼지 div 끝*/
+.all-div{
+    margin-top: 20px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.all-div img{
+    margin-right: 50px;
+}
+.all-div span{
+    font-size: 30px;
+    margin-right: 20px;
+}
+/* 통합실내지수 div 끝 */
+.figure-left{
+    margin: 0 auto;
+    width: 50%;
+    height: 70%;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+}
+.figure-right{
+    width: 50%;
+    height: 70%;
+    padding: 10px;
+}
+/* 이산화 탄소 */
+.co2-div{
+    margin-top: 80px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.co2-div img{
+    margin-right: 50px;
+}
+.co2-div span{
+    font-size: 30px;
+    margin-right: 20px;
+}
+/* 화합유기물*/
+.ugimul-div{
+    margin-top: 50px;
+    height: 150px;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.ugimul-div img{
+    margin-right: 50px;
+}
+.ugimul-div span{
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.figure-footer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.onspno-div{
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #ccc;
+    display: flex;
+}
+.ondo-div{
+    width: 30%;
+    height: 100px;
+}
+.sp-div{
+    width: 30%;
+    height: 100px;
+}
+.noise-div{
+    width: 30%;
+    height: 100px;
+}
+.cart-header{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-header h3{
+    font-size: 35px;
+}
+.dounut-div{
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.dounutboard-div{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 15px solid #7fd2da;
+    display: flex;
+}
+.dounutboard2-div{
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    border: 5px solid #7fd2da;
+    margin: auto;
+    position: relative;
+}
+.dounut-icon{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-30% , -40%);
+}
+.dounut-tncl{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-55% , -90%);
+}
+.dounut-tncl h3 {
+    font-size: 90px;
+    color: #7fd2da;
+}
+
+
+
+.cart-checking{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+.cart1{
+    width: 40px;
+    height: 40px;
+    background-color: #7fd2da;
+    border-radius: 50%;
+}
+.cart2{
+    width: 40px;
+    height: 40px;
+    background-color: #24b83c;
+    border-radius: 50%;
+}
+.cart3{
+    width: 40px;
+    height: 40px;
+    background-color: #cfdb29;
+    border-radius: 50%;
+}
+.cart4{
+    width: 40px;
+    height: 40px;
+    background-color: #c51b1b;
+    border-radius: 50%;
+}
+
+/* .name-box{
     border: 2px solid black;
     font-size: 30pt;
     width: 1800px;
@@ -72,4 +319,4 @@
 
 .right-line{
     border-right: 2px solid black;
-}
+} */
