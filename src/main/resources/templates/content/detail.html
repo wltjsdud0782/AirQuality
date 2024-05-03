@@ -9,6 +9,7 @@
 
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
+
     <div class="detail-container">
         <div class="detail-header">
             <h4>아이콘</h4>
@@ -29,6 +30,20 @@
                                 <h3>10</h3>
                             </div>
                         </div>
+
+  <h1>상세화면이 나오는 내용입니다.</h1>
+  <h3>[[${mapDetail.serialNo}]]</h3>
+    <div class="container-fluid">
+
+        <div class="row text-center">
+            <div class="col">
+
+
+                <div class="row name-box">
+                    <div class="col">
+                        [[${mapDetail.stationName}]]
+                        <span style="font-size: 11pt;">[[${today}]] 기준</span>
+
                     </div>
                 </div>
                 <div class="cart-checking">
@@ -42,6 +57,7 @@
                     <span>나쁨</span>
                 </div>
             </div>
+
             <div class="detail-figure">
                 <div class="figure-main">
                     <div class="figure-left">
@@ -83,6 +99,7 @@
             </div>
         </div>
     </div>
+
 
 
 </th:block>
