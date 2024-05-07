@@ -52,14 +52,14 @@
 
     <!-- 디테일로 봤을 때 상세정보 -->
     <select id="airDetailList" resultMap="airQuality">
-        SELECT ROUND(AVG(PM_CODE), 3) PM_CODE
+        SELECT ROUND(AVG(PM_CODE)) PM_CODE
             , PM_GRADE
-            , ROUND(AVG(FPM_CODE), 3) FPM_CODE
+            , ROUND(AVG(FPM_CODE)) FPM_CODE
             , FPM_GRADE
-            , ROUND(AVG(CICI_CODE), 3) CICI_CODE
+            , ROUND(AVG(CICI_CODE)) CICI_CODE
             , CICI_GRADE
-            , ROUND(AVG(CO2_CODE), 3) CO2_CODE
-            , ROUND(AVG(VOCS_CODE), 3) VOCS_CODE
+            , ROUND(AVG(CO2_CODE)) CO2_CODE
+            , ROUND(AVG(VOCS_CODE)) VOCS_CODE
         FROM air_quality A INNER JOIN cici C
         ON A.SERIAL_NO = C.SERIAL_NO AND AIR_TIME = CICI_TIME
         WHERE A.SERIAL_NO = #{serialNo}
