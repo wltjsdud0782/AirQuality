@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class AirQualityVO {
     private int airNo;
-    private float pmCode;
+    private int pmCode;
     private String pmGrade;
-    private float fpmCode;
+    private int fpmCode;
     private String fpmGrade;
-    private double co2Code;
-    private float vocsCode;
+    private int co2Code;
+    private int vocsCode;
     private String serialNo;
 
     private double pmPercent;
