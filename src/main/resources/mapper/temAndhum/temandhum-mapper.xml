@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="temAndHumMapper">
+
+    <resultMap id="temAndHum" type="com.Phoenix.AirQuality.temandhum.VO.TemAndHumVO">
+        <id column="DATA_CODE"          property="dataCode" />
+        <result column="DATE_TIME"      property="dataTime"/>
+        <result column="SERIAL_NO"      property="serialNo"/>
+        <result column="TEMPERATURE"    property="temperature"/>
+        <result column="HUMIDITY"       property="humidity"/>
+        <result column="MAX_TEMPERATURE"    property="maxTemperature"/>
+        <result column="MAX_HUMIDITY"       property="maxHumidity"/>
+        <result column="MIN_TEMPERATURE"       property="minTemperature"/>
+        <result column="MIN_HUMIDITY"       property="minHumidity"/>
+    </resultMap>
+
+	<select id="nine" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , HOUR(DATE_TIME) DATE_TIME
+        , MAX(TEMPERATURE) MAX_TEMPERATURE
+        , MAX(HUMIDITY) MAX_HUMIDITY
+        , MIN(TEMPERATURE) MIN_TEMPERATURE
+        , MIN(HUMIDITY) MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %h')
+        = DATE_FORMAT(NOW(), '%Y-%m-%d 09');
+    </select>
+
+    <select id="eleven" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , HOUR(DATE_TIME) DATE_TIME
+        , MAX(TEMPERATURE) MAX_TEMPERATURE
+        , MAX(HUMIDITY) MAX_HUMIDITY
+        , MIN(TEMPERATURE) MIN_TEMPERATURE
+        , MIN(HUMIDITY) MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %h')
+        = DATE_FORMAT(NOW(), '%Y-%m-%d 11');
+    </select>
+
+    <select id="thirteen" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , HOUR(DATE_TIME) DATE_TIME
+        , MAX(TEMPERATURE) MAX_TEMPERATURE
+        , MAX(HUMIDITY) MAX_HUMIDITY
+        , MIN(TEMPERATURE) MIN_TEMPERATURE
+        , MIN(HUMIDITY) MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
+        = DATE_FORMAT(NOW(), '%Y-%m-%d 13');
+    </select>
+
+    <select id="fifteen" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , HOUR(DATE_TIME) DATE_TIME
+        , MAX(TEMPERATURE) MAX_TEMPERATURE
+        , MAX(HUMIDITY) MAX_HUMIDITY
+        , MIN(TEMPERATURE) MIN_TEMPERATURE
+        , MIN(HUMIDITY) MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
+        = DATE_FORMAT(NOW(), '%Y-%m-%d 15');
+    </select>
+
+    <select id="seventeen" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , HOUR(DATE_TIME) DATE_TIME
+        , MAX(TEMPERATURE) MAX_TEMPERATURE
+        , MAX(HUMIDITY) MAX_HUMIDITY
+        , MIN(TEMPERATURE) MIN_TEMPERATURE
+        , MIN(HUMIDITY) MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
+        = DATE_FORMAT(NOW(), '%Y-%m-%d 17');
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

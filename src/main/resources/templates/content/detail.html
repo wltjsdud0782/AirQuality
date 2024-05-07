@@ -9,6 +9,30 @@
 
 <th:block layout:fragment="contentFragment">
     <!-- html 코드 작성 -->
+
+    <div class="detail-container">
+        <div class="detail-header">
+            <h4>아이콘</h4>
+            <h3>[[${mapDetail.stationName}]]</h3>
+            <h5>[[${today}]]</h5>
+        </div>
+        <div class="detail-content">
+            <div class="detail-chart">
+                <div class="cart-header">
+                    <h3>미세먼지</h3>
+                </div>
+                <div class="dounut-div">
+                    <!-- 동그라미 선 2개 -->
+                    <div class="dounutboard-div">
+                        <div class="dounutboard2-div">
+                            <div class="dounut-icon"><img src="/icon/miseIcon.gif" width="100%"></div>
+                            <div class="dounut-tncl">
+                                <h3>10</h3>
+                            </div>
+                        </div>
+
+  <h1>상세화면이 나오는 내용입니다.</h1>
+  <h3>[[${mapDetail.serialNo}]]</h3>
     <div class="container-fluid">
 
         <div class="row text-center">
@@ -19,130 +43,62 @@
                     <div class="col">
                         [[${mapDetail.stationName}]]
                         <span style="font-size: 11pt;">[[${today}]] 기준</span>
+
                     </div>
                 </div>
-
-                <div class="row mt-5">
-                    <div class="col">
-
-                        <div class="row">
-                            <!-- 왼쪽 -->
-                            <div class="col-6 right-line">
-                                <div class="row column-box">
-                                    <div class="col">
-                                        <span>선택컬럼명</span>
-                                    </div>
-                                </div>
-                                <div class="row round-div">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                그림
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                수치
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row bar-div">
-                                    <div class="col">
-                                        등급별 바
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 오른쪽 -->
-                            <div class="col-6">
-                                <div class="row">
-                                    <div class="col">
-
-                                        <div class="row right-table-div">
-
-                                            <div class="col-6">
-                                                <div class="row grade-div">
-                                                    <table class="table icon-table">
-                                                        <colgroup>
-                                                            <col width="30">
-                                                            <col width="70">
-                                                        </colgroup>
-                                                        <tr>
-                                                            <td><img src="/icon/pm.png" width="100%"></td>
-                                                            <td>미세먼지</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img src="/icon/fpm.png" width="100%"></td>
-                                                            <td>초미세먼지</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img src="/icon/cici.png" width="100%"></td>
-                                                            <td>통합실내지수</td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="row not-grade-div">
-                                                    <div class="col">
-                                                        <table class="table icon-table">
-                                                            <colgroup>
-                                                                <col width="30">
-                                                                <col width="70">
-                                                            </colgroup>
-                                                            <tr>
-                                                                <td><img src="/icon/co2.png" width="100%"></td>
-                                                                <td>이산화탄소</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><img src="/icon/vocs.png" width="100%"></td>
-                                                                <td>화합성유기화합물</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row right-bottom-div">
-                                            <div class="col">
-                                                <div class="row fix-div">
-                                                    <table class="table avg-table">
-                                                        <thead>
-                                                            <tr>
-                                                                <td class="right-line">온도 평균</td>
-                                                                <td class="right-line">습도 평균</td>
-                                                                <td>소음 평균</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tr>
-                                                            <td class="right-line">온도</td>
-                                                            <td class="right-line">습도</td>
-                                                            <th:block th:if="${decibelInfo == null}">
-                                                                <td>조회된 데이터가 없습니다.</td>
-                                                            </th:block>
-                                                            <th:block th:unless="${decibelInfo == null}">
-                                                                <td>[[${decibelInfo.avgDeci}]]</td>
-                                                            </th:block>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
+                <div class="cart-checking">
+                    <div class="cart1"></div>
+                    <span>매우좋음</span>
+                    <div class="cart2"></div>
+                    <span>좋음</span>
+                    <div class="cart3"></div>
+                    <span>보통</span>
+                    <div class="cart4"></div>
+                    <span>나쁨</span>
                 </div>
             </div>
 
-
+            <div class="detail-figure">
+                <div class="figure-main">
+                    <div class="figure-left">
+                        <div class="mise-div">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <span>9</span>
+                            <span>미세먼지</span>
+                        </div>
+                        <div class="chomise-div">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <span>20</span>
+                            <span>초미세먼지</span>
+                        </div>
+                        <div class="all-div">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <span>20</span>
+                            <span>통합실내지수</span>
+                        </div>
+                    </div>
+                    <div class="figure-right">
+                        <div class="co2-div">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <span>20</span>
+                            <span>이산화탄소</span>
+                        </div>
+                        <div class="ugimul-div">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <span>20</span>
+                            <span>휘발성화합유기물</span>
+                        </div>
+                </div>
+            </div>
+            <div class="figure-footer">
+                <div class="onspno-div">
+                    <div class="ondo-div">온도</div>
+                    <div class="sp-div">습도</div>
+                    <div class="noise-div">소음</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
