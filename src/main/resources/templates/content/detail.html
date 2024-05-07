@@ -30,78 +30,66 @@
                                 <h3>10</h3>
                             </div>
                         </div>
-
-  <h1>상세화면이 나오는 내용입니다.</h1>
-  <h3>[[${mapDetail.serialNo}]]</h3>
-    <div class="container-fluid">
-
-        <div class="row text-center">
-            <div class="col">
-
-
-                <div class="row name-box">
-                    <div class="col">
-                        [[${mapDetail.stationName}]]
-                        <span style="font-size: 11pt;">[[${today}]] 기준</span>
-
-                    </div>
-                </div>
-                <div class="cart-checking">
-                    <div class="cart1"></div>
-                    <span>매우좋음</span>
-                    <div class="cart2"></div>
-                    <span>좋음</span>
-                    <div class="cart3"></div>
-                    <span>보통</span>
-                    <div class="cart4"></div>
-                    <span>나쁨</span>
+                        <div class="cart-checking">
+                            <div class="cart1"></div>
+                            <span>매우좋음</span>
+                            <div class="cart2"></div>
+                            <span>좋음</span>
+                            <div class="cart3"></div>
+                            <span>보통</span>
+                            <div class="cart4"></div>
+                            <span>나쁨</span>
+                        </div>
+                    </div>       
                 </div>
             </div>
-
             <div class="detail-figure">
                 <div class="figure-main">
                     <div class="figure-left">
                         <div class="mise-div">
-                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;"
+                                alt="미세먼지">
                             <span>9</span>
                             <span>미세먼지</span>
                         </div>
                         <div class="chomise-div">
-                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;"
+                                alt="미세먼지">
                             <span>20</span>
                             <span>초미세먼지</span>
                         </div>
                         <div class="all-div">
-                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;"
+                                alt="미세먼지">
                             <span>20</span>
                             <span>통합실내지수</span>
                         </div>
                     </div>
                     <div class="figure-right">
                         <div class="co2-div">
-                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;"
+                                alt="미세먼지">
                             <span>20</span>
                             <span>이산화탄소</span>
                         </div>
                         <div class="ugimul-div">
-                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                            <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;"
+                                alt="미세먼지">
                             <span>20</span>
                             <span>휘발성화합유기물</span>
                         </div>
+                    </div>
                 </div>
-            </div>
-            <div class="figure-footer">
-                <div class="onspno-div">
-                    <div class="ondo-div">온도</div>
-                    <div class="sp-div">습도</div>
-                    <div class="noise-div">소음</div>
+                <div class="figure-footer">
+                    <div class="onspno-div">
+                        <div class="ondo-div">온도</div>
+                        <div class="sp-div">습도</div>
+                        <div class="noise-div">소음</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </th:block>
 
 <th:block layout:fragment="content_js">
