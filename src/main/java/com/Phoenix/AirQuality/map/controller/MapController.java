@@ -38,6 +38,8 @@ public class MapController {
             model.addAttribute("today", averageService.todayDate());
             model.addAttribute("decibelInfo", decibelService.serialDecibel(serialNo));
 
+            System.out.println(vo);
+
             return "content/detail";
         }
 
