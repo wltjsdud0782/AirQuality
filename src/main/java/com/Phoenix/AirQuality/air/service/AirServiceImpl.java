@@ -39,4 +39,11 @@ public class AirServiceImpl implements AirService{
     public List<CiciVO> bestCiciTop5() {
         return sqlSession.selectList("ciciMapper.bestCiciTop5");
     }
+
+    @Override
+    public AirQualityVO airDetailList(String serialNo) {
+        return sqlSession.selectOne("airMapper.airDetailList", serialNo);
+    }
+
+
 }

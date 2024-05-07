@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class CiciVO {
     private int ciciNo;
-    private double ciciCode;
+    private float ciciCode;
     private String ciciGrade;
     private String serialNo;
 

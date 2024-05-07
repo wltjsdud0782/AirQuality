@@ -24,4 +24,9 @@ public interface AirService {
     //가장 낮은 실내통합지수 top 10
 //    List<CiciVO> worstCiciTop10();
 
+    // ----------------------------------------------------------------------------------------- //
+
+    //디테일
+    AirQualityVO airDetailList(String serialNo);
+
 }

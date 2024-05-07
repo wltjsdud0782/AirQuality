@@ -1,5 +1,7 @@
 package com.Phoenix.AirQuality.map.controller;
 
+import com.Phoenix.AirQuality.air.service.AirServiceImpl;
+import com.Phoenix.AirQuality.air.vo.AirQualityVO;
 import com.Phoenix.AirQuality.average.service.AverageServiceImpl;
 import com.Phoenix.AirQuality.average.service.DecibelServiceImpl;
 import com.Phoenix.AirQuality.map.service.MapService;
@@ -22,6 +24,8 @@ public class MapController {
         private AverageServiceImpl averageService;
         @Resource(name = "decibelService")
         private DecibelServiceImpl decibelService;
+        @Resource(name = "airService")
+        private AirServiceImpl airService;
 
         //지도 위 경도 불러오기
         @ResponseBody
@@ -36,7 +40,7 @@ public class MapController {
             model.addAttribute("mapDetail", vo);
             model.addAttribute("today", averageService.todayDate());
             model.addAttribute("decibelInfo", decibelService.serialDecibel(serialNo));
-
+            model.addAttribute("detailAir", airService.airDetailList(serialNo));
             System.out.println(vo);
 
             return "content/detail";
