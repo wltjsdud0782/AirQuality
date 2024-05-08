@@ -1,10 +1,8 @@
 package com.Phoenix.AirQuality.map.controller;
 
 import com.Phoenix.AirQuality.air.service.AirServiceImpl;
-import com.Phoenix.AirQuality.air.vo.AirQualityVO;
 import com.Phoenix.AirQuality.average.service.AverageServiceImpl;
 import com.Phoenix.AirQuality.average.service.DecibelServiceImpl;
-import com.Phoenix.AirQuality.map.service.MapService;
 import com.Phoenix.AirQuality.map.service.MapServiceImpl;
 import com.Phoenix.AirQuality.map.vo.MapVO;
 import jakarta.annotation.Resource;
@@ -39,13 +37,19 @@ public class MapController {
             MapVO vo = mapService.detailNoSelect(serialNo);
             model.addAttribute("mapDetail", vo);
             model.addAttribute("today", averageService.todayDate());
+
             model.addAttribute("decibelInfo", decibelService.serialDecibel(serialNo));
             model.addAttribute("detailAir", airService.airDetailList(serialNo));
-            System.out.println(vo);
 
+            System.out.println(vo);
             return "content/detail";
         }
 
+//        @PostMapping("/exist")
+//        public String exist(@RequestParam(name="serialNo") String serialNo) {
+//            serialNo = decibelService.serialDecibel(serialNo).getSerialNo();
+//            return serialNo;
+//        }
     }
 
 
