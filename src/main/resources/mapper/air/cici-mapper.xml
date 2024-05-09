@@ -29,9 +29,9 @@
         ORDER BY FIELD(CICI_GRADE, '좋음', '보통', '나쁨', '매우 나쁨');
     </select>
 
-    <!-- 가장 높은 실내통합지수 top 5 -->
+    <!-- 가장 높은 실내통합지수 top 5, 중복 데이터 내성없음 -->
     <select id="bestCiciTop5" resultMap="cici">
-        SELECT ROUND(AVG(CICI_CODE), 2) AS CICI_CODE
+        SELECT ROUND(AVG(CICI_CODE)) AS CICI_CODE
             , STATION_NAME
             , C.SERIAL_NO
         FROM CICI C
@@ -39,8 +39,9 @@
         ON C.SERIAL_NO = M.SERIAL_NO
         WHERE DATE_FORMAT(CICI_TIME, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')
         GROUP BY STATION_NAME
-        ORDER BY CICI_CODE DESC LIMIT 5;
+        ORDER BY AVG(CICI_CODE) DESC LIMIT 5;
     </select>
+
 
 <!--    SELECT CICI_CODE-->
 <!--    , STATION_NAME-->
