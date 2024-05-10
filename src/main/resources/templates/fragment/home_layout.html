@@ -17,7 +17,7 @@
 
 <body>
 
-    <div>
+    <div style="width: 99.3vw;">
         <!-- @@@@상단메뉴@@@@ -->
         <div class="row air-top">
             <div class="col">
@@ -41,23 +41,25 @@
 
                         <div class="col-4">
                             <div class="row" style="height: 500px;">
-                                <div class="col">
-                                    <div class="row layout-fragment-default" style="height: 400px;">
-                                        <div class="col">
+                                <!-- <div class="col"> -->
+                                    <!-- <div class="row layout-fragment-default" style="height: 400px;"> -->
+                                        <div class="col layout-fragment-default"
+                                            style="height: 400px;">
                                             <th:block th:replace="~{fragment/map::mapFragment}">
                                                 <!-- html 코드 작성 -->
                                             </th:block>
                                         </div>
-                                    </div>
-                                    <div class="row layout-fragment-default"
-                                        style="background-color: rgb(250, 249, 249); height: 100px;">
-                                        <div class="col">
+                                    <!-- </div> -->
+                                    <!-- <div class="row layout-fragment-default"
+                                        style="background-color: rgb(250, 249, 249); height: 100px;"> -->
+                                        <div class="col layout-fragment-default"
+                                            style="background-color: rgb(250, 249, 249); height: 100px;">
                                             <th:block th:replace="~{fragment/map_bottom::map_bottomFragment}">
                                                 <!-- html 코드 작성 -->
                                             </th:block>
                                         </div>
-                                    </div>
-                                </div>
+                                    <!-- </div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
 
