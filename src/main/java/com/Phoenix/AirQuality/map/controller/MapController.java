@@ -7,6 +7,7 @@ import com.Phoenix.AirQuality.average.service.DecibelServiceImpl;
 import com.Phoenix.AirQuality.map.service.MapService;
 import com.Phoenix.AirQuality.map.service.MapServiceImpl;
 import com.Phoenix.AirQuality.map.vo.MapVO;
+import com.Phoenix.AirQuality.temandhum.service.TemAndHumService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,8 @@ public class MapController {
         private DecibelServiceImpl decibelService;
         @Resource(name = "airService")
         private AirServiceImpl airService;
+        @Resource(name = "temAndHumService")
+        private TemAndHumService temAndHumService;
 
         //지도 위 경도 불러오기
         @ResponseBody
@@ -41,6 +44,7 @@ public class MapController {
             model.addAttribute("today", averageService.todayDate());
             model.addAttribute("decibelInfo", decibelService.serialDecibel(serialNo));
             model.addAttribute("detailAir", airService.airDetailList(serialNo));
+            model.addAttribute("temAndHum", temAndHumService.detailSelect(serialNo));
             System.out.println(vo);
 
             return "content/detail";

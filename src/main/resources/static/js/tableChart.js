@@ -34,17 +34,20 @@ function tableChart() {
         <tr>
           <td colspan="3"><h4>${month}월, 서초구 내 가장 쾌적한 곳 1-5위</h4></td>
         </tr>
-        <tr>
-          <th>순위</th>
-          <th>시설명</th>
-          <th>통합실내지수</th>
-        </tr>
       `;
       titleChart.insertAdjacentHTML('afterbegin', str_1);
 
       const tableChart = document.querySelector('.tableChart');
       tableChart.innerHTML = '';
       let str = '';
+
+      str += `
+      <tr>
+        <th>순위</th>
+        <th>시설명</th>
+        <th>통합실내지수</th>
+      </tr>
+      `
       for (let i = 0; i < data.TOP.length; i++) {
         str += `
         <tr>

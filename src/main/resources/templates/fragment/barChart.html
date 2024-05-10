@@ -2,10 +2,16 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <th:block th:fragment="barFragment">
-    <div class="layer"> 
-        <!-- <div style="font-size: small; text-align: right; padding-right: 2%;"><font color="red";>*</font>실내</div> -->
-        <canvas id="mixed-chart" style="width: 200%; height: 100%;"></canvas>  
+    <div class="bar-container">
+        <div class="bar-title">
+            <span>서초구 전체 실내 평균 온습도</span>
+        </div>
+        <div class="layer"> 
+            <!-- <div style="font-size: small; text-align: right; padding-right: 2%;"><font color="red";>*</font>실내</div> -->
+            <canvas id="mixed-chart" style="width: 200%; height: 100%;"></canvas>  
+        </div>
     </div>
+    
 </th:block>
 
 </html>
