@@ -1,29 +1,34 @@
-table.rank-table {
+.rank-table {
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-left: 3px solid #369;
+    /* border-top: 1px solid #ccc;
+    border-left: 3px solid #369; */
     margin: 20px 10px;
 }
 
-table.rank-table th {
+.titleChart{
+    border-bottom: 2px solid #369;
+}
+.rank-table th{
     width: 147px;
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
     color: #153d73;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid rgb(96, 131, 165); */
+    /* border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; */
 
 }
 
-table.rank-table td {
+.rank-table td {
     width: 349px;
-    padding: 10px;
+    padding: 15px;
+    /* border-bottom: 1px solid rgb(96, 131, 165); */
     vertical-align: top;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    /* border-right: 1px solid #ccc;
+    ; */
 }
 
 /* .rankWrap{

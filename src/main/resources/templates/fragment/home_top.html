@@ -3,9 +3,33 @@
 
 
     <th:block th:fragment="topFragment">
-        <div class="row">
-            <div class="col">
-                서울특별시 서초구_다중이용시설 IoT 실시간 실내공기질 측정 데이터 조회 서비스
+        <div class="header-div">
+            <div class="header-logo">
+                <h3><img src="/icon/LOGO.gif" alt="로고"></h3>
+            </div>
+            <div class="header-title">
+               <h4>서초구 다중이용시설<br> 
+                <p>실시간 <span>실내 공기질</span></p>모니터링</h4>
+            </div>
+            <div class="header-detail">
+                <h5> Map 상세보기</h5>
+                <th:block th:replace="~{fragment/map_bottom::map_bottomFragment}">
+                    <!-- html 코드 작성 -->
+                </th:block>
+            </div>
+
+            <div class="header-footer">
+                <ul class="maker">
+                    <li><a href="#">제작자 :</a></li>
+                    <li><a href="#">지선영</a></li>
+                    <li><a href="#">윤상혁</a></li>
+                    <li><a href="#">장무옥</a></li>
+                    <li><a href="#">김주희</a></li><br>
+                </ul>
+                <ul class="atpo">
+                    <li><a href="#">Team :</a></li>
+                    <li><a href="#">불사조</a></li></li>
+                </ul>
             </div>
         </div>
 

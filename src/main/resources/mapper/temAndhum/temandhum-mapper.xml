@@ -76,6 +76,16 @@
         = DATE_FORMAT(NOW(), '%Y-%m-%d 17');
     </select>
 
+    <select id="detailSelect" resultMap="temAndHum">
+        SELECT DATA_CODE
+        , TEMPERATURE
+        , HUMIDITY
+        , DATE_TIME
+        , SERIAL_NO
+        FROM TEMANDHUM
+        WHERE SERIAL_NO = #{serialNo}
+        AND DATE_TIME = (SELECT MAX(DATE_TIME) FROM temandhum WHERE SERIAL_NO = #{serialNo});
+    </select>
 </mapper>
 
 

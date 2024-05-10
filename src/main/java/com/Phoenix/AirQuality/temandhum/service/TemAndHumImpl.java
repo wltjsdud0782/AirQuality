@@ -43,4 +43,9 @@ public class TemAndHumImpl implements TemAndHumService{
 
         return temAndHumList;
     }
+
+    @Override
+    public TemAndHumVO detailSelect(String serialNo) {
+        return sqlSession.selectOne("temAndHumMapper.detailSelect",serialNo);
+    }
 }

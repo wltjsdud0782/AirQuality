@@ -29,11 +29,12 @@
 
 <!--  오늘 기준 시리얼 넘버가 일치하는 데시벨 정보  -->
     <select id="serialDecibel" resultMap="decibel">
-        SELECT
-        SUBSTRING(AVG(DECIBEL),1,5) AVG_DECI
+        SELECT DECIBEL
+        , DECIBEL_TIME
         FROM decibel_info
         WHERE SERIAL_NO = #{serialNo}
-        AND DATE_FORMAT(DECIBEL_TIME, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d');
+        AND DECIBEL_TIME= (SELECT MAX(DECIBEL_TIME) FROM DECIBEL_INFO WHERE SERIAL_NO = #{serialNo})
+        LIMIT 1;
     </select>
 
 </mapper>
