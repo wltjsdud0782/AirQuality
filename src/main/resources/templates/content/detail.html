@@ -12,35 +12,42 @@
 
     <div class="detail-container">
         <div class="detail-header">
-            <h4>아이콘</h4>
+            <h4 class="bi bi-arrow-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" fill="currentColor" class="bi bi-arrow-left cursor" viewBox="0 0 16 16" style="color: #fff;" onclick="location.href='/main/main'">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+                <!-- <img src="/icon/mainIcon.gif" alt="메인아이콘" onclick="location.href='/main/main'" class="cursor" style="width: 50px; height: 60px;"> -->
+            </h4> 
             <h3>[[${mapDetail.stationName}]]</h3>
             <h5>[[${today}]]</h5>
         </div>
         <div class="detail-content">
             <div class="detail-chart">
                 <div class="cart-header">
-                    <h3>미세먼지</h3>
+                    <h3 style="font-size: 35px;" class="headerText">미세먼지</h3>
                 </div>
                 <div class="dounut-div">
                     <!-- 동그라미 선 2개 -->
                     <div class="dounutboard-div">
                         <div class="dounutboard2-div">
-                            <div class="dounut-icon"><img src="/icon/miseIcon.gif" width="100%"></div>
+                            <div class="dounut-icon"><img src="/icon/miseIcon.gif" width="100%" class="dounut-img"></div>
                             <div class="dounut-tncl">
-                                <h3>10</h3>
+                                <h3 class="dounut-data">
+                                    [[${detailAir.pmCode}]]
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="cart-checking">
                     <div class="cart1"></div>
-                    <span>매우좋음</span>
-                    <div class="cart2"></div>
                     <span>좋음</span>
-                    <div class="cart3"></div>
+                    <div class="cart2"></div>
                     <span>보통</span>
-                    <div class="cart4"></div>
+                    <div class="cart3"></div>
                     <span>나쁨</span>
+                    <div class="cart4"></div>
+                    <span>매우나쁨</span>
                 </div>
             </div>
             <div class="detail-figure">
@@ -48,40 +55,49 @@
                 <th:block th:each="air : ${detailAir}">
                     <div class="figure-main">
                         <div class="figure-left">
-                            <div class="mise-div">
-                                <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
-                                <span>[[${air.pmCode}]]</span>
-                                <span>미세먼지</span>
+                            <div class="mise-div cursor" th:onclick="pm([[${detailAir}]])">
+                                <img src="/icon/miseIcon.gif" style="width: 120px; height: 80px;" alt="미세먼지">
+                                <span class="pm-data">[[${air.pmCode}]]</span>
+                                <span style="margin-left: 30px;">미세먼지</span>
                             </div>
-                            <div class="chomise-div">
-                                <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
-                                <span>[[${air.fpmCode}]]</span>
-                                <span>초미세먼지</span>
+                            <div class="chomise-div cursor" th:onclick="fpm([[${detailAir}]])">
+                                <img src="/icon/fcmIcon.gif" style="width: 120px; height: 80px;" alt="미세먼지">
+                                <span class="fpm-data">[[${air.fpmCode}]]</span>
+                                <span style="margin-left: 30px;">초미세먼지</span>
                             </div>
-                            <div class="all-div">
-                                <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
-                                <span>[[${air.ciciVO.ciciCode}]]</span>
-                                <span>통합실내지수</span>
+                            <div class="all-div cursor" th:onclick="cici([[${detailAir}]])">
+                                <img src="/icon/ciciIcon.gif" style="width: 120px; height: 80px;" alt="미세먼지">
+                                <span class="cici-data">[[${air.ciciVO.ciciCode}]]</span>
+                                <span style="margin-left: 30px;">통합실내지수</span>
                             </div>
                         </div>
                         <div class="figure-right">
                             <div class="co2-div">
-                                <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                                <img src="/icon/Co2Icon.gif" style="width: 120px; height: 80px;" alt="미세먼지">
                                 <span>[[${air.co2Code}]]</span>
-                                <span>이산화탄소</span>
+                                <span style="margin-left: 30px;">이산화탄소</span>
                             </div>
                             <div class="ugimul-div">
-                                <img src="/icon/miseIcon.gif" style="width: 100px; height: 100px;" alt="미세먼지">
+                                <img src="/icon/vocIcon.gif" style="width: 100px; height: 80px;" alt="미세먼지">
                                 <span>[[${air.vocsCode}]]</span>
-                                <span>휘발성화합유기물</span>
+                                <span style="margin-left: 30px;">휘발성<br>화합유기물</span>
                             </div>
                         </div>
                     </div>
                     <div class="figure-footer">
                         <div class="onspno-div">
-                            <div class="ondo-div">온도</div>
-                            <div class="sp-div">습도</div>
-                            <div class="noise-div">소음</div>
+                            <div class="ondo-div">
+                                <img src="/icon/temIcon.gif" alt="온도계" style="height: 80px; width: 60px;">
+                                <span>[[${temAndHum.temperature}]]˚C</span>
+                            </div>
+                            <div class="sp-div">
+                                <img src="/icon/humIcon.gif" alt="습도" style="height: 80px; width: 60px;">
+                                <span>[[${temAndHum.humidity}]]%</span>
+                            </div>
+                            <div class="noise-div">
+                                <img src="/icon/dbIcon.gif" alt="소음" style="height: 80px; width: 60px;">
+                                <span>[[${decibelInfo.decibel}]]dB</span>
+                            </div>
                         </div>
                     </div>
                 </th:block>
@@ -92,7 +108,7 @@
 
 <th:block layout:fragment="content_js">
     <!-- html 파일이 열릴때 같이 실행되는 js -->
-    <!-- <script src="/"></script> -->
+    <script src="/js/detail.js"></script>
 </th:block>
 
 </html>
