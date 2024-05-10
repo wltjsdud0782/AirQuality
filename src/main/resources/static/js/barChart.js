@@ -1,4 +1,4 @@
-barChart();
+barChart()
 
 function barChart() {
     fetch('/average/averageBar', { //요청경로
@@ -29,7 +29,6 @@ function barChart() {
                 avgDataList.minTem.push(e.minTem)
             });
 
-            // 실시간온도, 실시간 습도 수정해야함!!!!!!!!!!!!!!!
             new Chart(document.querySelector('#mixed-chart'), {
                 type: 'bar',
                 data: {
@@ -65,7 +64,7 @@ function barChart() {
                     maxBarThickness : 30,
                     title: {
                         display: true,
-                        text: 'Population growth (millions): Europe & Africa'
+                        text: '믹스차트'
                     },
                     legend: { display: false }
                 }
