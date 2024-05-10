@@ -11,89 +11,13 @@
     <link rel="stylesheet" href="/css/airQuality.css">
     <link rel="stylesheet" href="/css/tableChart.css">
     <link rel="stylesheet" href="/css/doughnutChart.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4b937900d2f2580d398da54dafecbfa3"></script>
+    <!-- <script src="/js/map.js"></script> -->
+    <script src="/js/map.js"></script>
     <th:block layout:fragment="content_css"></th:block>
 </head>
 
 <body>
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <div>
-=======
-<<<<<<< HEAD
-    <div style="width: 99.3vw;">
->>>>>>> bdcb4eb17b3be6c09cae9208cc63994bebb629ef
-        <!-- @@@@상단메뉴@@@@ -->
-        <div class="row air-top">
-            <div class="col">
-                <th:block th:replace="~{fragment/home_top::topFragment}">
-
-                </th:block>
-            </div>
-        </div>
-        <!-- @@@@밑@@@@ -->
-        <div class="row air-bottom">
-            <div class="row text-center">
-                <div class="col">
-
-                    <div class="row" style="height: 500px;">
-
-                        <div class="col-8 layout-fragment-default">
-                            <th:block th:replace="~{fragment/lineChart::lineFragment}">
-                                <!-- html 코드 작성 -->
-                            </th:block>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="row" style="height: 500px;">
-                                <!-- <div class="col"> -->
-                                    <!-- <div class="row layout-fragment-default" style="height: 400px;"> -->
-                                        <div class="col layout-fragment-default"
-                                            style="height: 400px;">
-                                            <th:block th:replace="~{fragment/map::mapFragment}">
-                                                <!-- html 코드 작성 -->
-                                            </th:block>
-                                        </div>
-                                    <!-- </div> -->
-                                    <!-- <div class="row layout-fragment-default"
-                                        style="background-color: rgb(250, 249, 249); height: 100px;"> -->
-                                        <div class="col layout-fragment-default"
-                                            style="background-color: rgb(250, 249, 249); height: 100px;">
-                                            <th:block th:replace="~{fragment/map_bottom::map_bottomFragment}">
-                                                <!-- html 코드 작성 -->
-                                            </th:block>
-                                        </div>
-                                    <!-- </div> -->
-                                <!-- </div> -->
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row" style="height: 350px;">
-
-                        <div class="col-4 layout-fragment-default">
-                            <th:block th:replace=" ~{fragment/barChart::barFragment}">
-                            <!-- html 코드 작성 -->
-                            </th:block>
-                        </div>
-
-                        <div class="col-4 layout-fragment-default">
-                            <th:block th:replace="~{fragment/doughnutChart::doughnutFragment}">
-                                <!-- html 코드 작성 -->
-                            </th:block>
-                        </div>
-
-                        <div class="col-4 layout-fragment-default">
-                            <th:block th:replace="~{fragment/tableChart::tableFragment}">
-                                <!-- html 코드 작성 -->
-                            </th:block>
-                        </div>
-
-                    </div>
-=======
->>>>>>> da2e957927b0fcd6d76ce54927517654307fc411
     <div class="main-container">
         <div class="side-div">
             <!-- 사이드 메뉴 -->
@@ -136,12 +60,6 @@
     </div>
 
 
-
-
-
-
-
-
     <!-- bootstrap JS -->
     <script src="https://gcore.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -155,6 +73,10 @@
     <script src="/js/doughnutChart.js"></script>
     <script src="/js/barChart.js"></script>
     <script src="/js/tableChart.js"></script>
+    
+    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4b937900d2f2580d398da54dafecbfa3">
+    </script> -->
+   
     <th:block layout:fragment="content_js">
     </th:block>
 </body>

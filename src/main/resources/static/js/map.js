@@ -37,7 +37,8 @@ fetch('/map/selectMap', { //요청경로
 function drawMap(data) {
   const container = document.querySelector('#map');
   const options = {
-    center: new kakao.maps.LatLng(37.4887, 127.0214), //지도의 중심좌표 (햇님어린이집)
+    // new kakao.maps.LatLng(37.4887, 127.0214)
+    center: new kakao.maps.LatLng(37.4887 , 127.0214), //지도의 중심좌표 (햇님어린이집)
     level: 7 //지도의 레벨(확대, 축소 정도) : 숫자가 작을수록 화면확대됨(1:20m 6: 500m, 7: 1km, 15:128km, 7하고 사이즈 조금 더 키우기)
   };
 
