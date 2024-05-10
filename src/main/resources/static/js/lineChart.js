@@ -29,6 +29,7 @@ const temAndHum = () =>{
         let minTemperature = [];
         let maxHumidity = [];
         let minHumidity = [];
+        
 
         console.log(minHumidity)
 
@@ -41,50 +42,107 @@ const temAndHum = () =>{
         });
         console.log(maxHumidity)
 
-        new Chart(document.querySelector('#line-chart'), {
-        type: 'line',
-        data: {
-            labels: ['9시', '11시', '13시', '15시', '17시'],
-            datasets: [
-                {
-                    data: maxTemperature,
-                    label: "실내최고온도",
-                    borderColor: "#a71111",
-                    fill: false
-                }, 
-                {
-                    data: minTemperature,
-                    label: "실내최저온도",
-                    borderColor: "#45c3e9",
-                    fill: false
+        let lineChart = echarts.init(document.querySelector("#lineChart-div"));
+        option = {
+            tooltip: {
+              trigger: 'axis'
+            },
+            legend: {},
+            toolbox: {
+              show: true,
+              feature: {
+                dataZoom: {
+                  yAxisIndex: 'none'
                 },
-                {
-                    data: maxHumidity,
-                    label: "실내최고습도",
-                    borderColor: "rgb(14, 99, 226)",
-                    fill: false
-                }, 
-                {
-                    data: minHumidity,
-                    label: "실내최저습도",
-                    borderColor: "#3e951d",
-                    fill: false
-                }
-            ]
-        },
-            options: {
-                title: {
-                    display: true,
-                    text: 'World population per region (in millions)'
+                dataView: { readOnly: false },
+                magicType: { type: ['line', 'bar'] },
+                restore: {},
+                saveAsImage: {}
+              }
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: ['9시', '11시', '13시', '15시', '17시']
+            },
+            yAxis: {
+              type: 'value',
+              axisLabel: {
+                formatter: '{value} °C(%)'
+              }
+            },
+            series: [
+              {
+                name: '실내최저온도',
+                type: 'line',
+                data: minTemperature,
+                markPoint: {
+                  data: [
+                    { type: 'min', name: 'Min' }
+                  ]
                 },
-                scales: {
-                    y: {
-                        min: -10,
-                        max: 70
-                    }
-                }
-            }
-        });
+                // markLine: {
+                //   data: [{ type: 'average', name: 'Avg' }]
+                // }
+              },
+              {
+                name: '실내최저습도',
+                type: 'line',
+                data: minHumidity,
+                markPoint: {
+                    data: [
+                        { type: 'min', name: 'Min' },
+                    ]
+                },
+                // markLine: {
+                //   data: [
+                //     { type: 'average', name: 'Avg' },
+                //     [
+                //       {
+                //         symbol: 'none',
+                //         x: '90%',
+                //         yAxis: 'max'
+                //       },
+                //       {
+                //         symbol: 'circle',
+                //         label: {
+                //           position: 'start',
+                //           formatter: 'Max'
+                //         },
+                //         type: 'max',
+                //         name: '最高点'
+                //       }
+                //     ]
+                //   ]
+                // }
+              },
+              {
+                name: '실내최고습도',
+                type: 'line',
+                data: maxHumidity,
+                markPoint: {
+                  data: [
+                    { type: 'max', name: 'Max' },
+                  ]
+                },
+                // markLine: {
+                //   data: [{ type: 'average', name: 'Avg' }]
+                // }
+              },
+              {
+                name: '실내최고온도',
+                type: 'line',
+                data: maxTemperature,
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' },
+                    ]
+                },
+              }
+            ],
+          };
+
+            lineChart.setOption(option);
         })
             //fetch 통신 실패 시 실행 영역
         .catch(err=>{
@@ -94,3 +152,26 @@ const temAndHum = () =>{
         }
 
 temAndHum()
+
+function drawChart () { 
+
+    var myChart = echarts.init(document.getElementById('chart')); // echarts init 메소드로 id=chart인 DIV에 차트 초기화
+    
+    option = { // 차트를 그리는데 활용 할 다양한 옵션 정의
+                xAxis: {
+                    type: 'category',
+                    data: xAxisData // 위에서 정의한 X축 데이터
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                    data: seriesData, // 위에서 정의한 값 데이터
+                    type: this.value // 버튼의 value 데이터 ('line' or 'bar')
+                    }
+                ]
+                    };
+    
+    myChart.setOption(option); // 차트 디스플레이
+}
