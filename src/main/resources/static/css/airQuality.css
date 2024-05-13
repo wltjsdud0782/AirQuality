@@ -189,6 +189,7 @@ a{
 .map-detail-btn{
     position: absolute;
     right: -5%;
+    bottom: -20%;
     background-color: #fff;
     width: 70px;
     height: 30px;

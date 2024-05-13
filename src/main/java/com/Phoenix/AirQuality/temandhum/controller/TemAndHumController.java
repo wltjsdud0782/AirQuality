@@ -17,14 +17,21 @@ public class TemAndHumController {
     @Resource(name = "temAndHumService")
     private TemAndHumService temAndHumService;
 
-    @ResponseBody
-    @PostMapping("/temAndHumSelect")
-    public List<TemAndHumVO> selectTemAndHum(){
+//    @ResponseBody
+//    @PostMapping("/temAndHumSelect")
+//    public List<TemAndHumVO> selectTemAndHum(){
+//
+//        List<TemAndHumVO> dataList = temAndHumService.allSelect();
+//        System.out.println("!!!!!!!!!!!!!!!" + dataList);
+//        return dataList;
+//    }
 
-        List<TemAndHumVO> dataList = temAndHumService.nine();
+    @ResponseBody
+    @PostMapping("/selectTemAndHum")
+    public List<TemAndHumVO> selectTemAndHum(){
+        List<TemAndHumVO> dataList = temAndHumService.allSelect();
         System.out.println("!!!!!!!!!!!!!!!" + dataList);
         return dataList;
     }
-
 
 }

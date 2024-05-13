@@ -5,7 +5,9 @@ import com.Phoenix.AirQuality.temandhum.VO.TemAndHumVO;
 import java.util.List;
 
 public interface TemAndHumService {
-    List<TemAndHumVO> nine();
+//    List<TemAndHumVO> nine();
 
     TemAndHumVO detailSelect(String serialNo);
+
+    List<TemAndHumVO> allSelect();
 }

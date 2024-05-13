@@ -1,7 +1,7 @@
 // 라인차트
 
 const temAndHum = () =>{
-    fetch('/temAndHum/temAndHumSelect', { //요청경로
+    fetch('/temAndHum/selectTemAndHum', { //요청경로
         method: 'POST',
         cache: 'no-cache',
         headers: {
@@ -63,7 +63,7 @@ const temAndHum = () =>{
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: ['9시', '11시', '13시', '15시', '17시']
+              data: ['9시', '10시' , '11시', '12시', '13시', '14시', '15시', '16시', '17시']
             },
             yAxis: {
               type: 'value',

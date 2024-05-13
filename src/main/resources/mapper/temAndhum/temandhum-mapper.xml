@@ -16,66 +16,6 @@
         <result column="MIN_HUMIDITY"       property="minHumidity"/>
     </resultMap>
 
-	<select id="nine" resultMap="temAndHum">
-        SELECT DATA_CODE
-        , HOUR(DATE_TIME) DATE_TIME
-        , MAX(TEMPERATURE) MAX_TEMPERATURE
-        , MAX(HUMIDITY) MAX_HUMIDITY
-        , MIN(TEMPERATURE) MIN_TEMPERATURE
-        , MIN(HUMIDITY) MIN_HUMIDITY
-        FROM temandhum
-        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %h')
-        = DATE_FORMAT(NOW(), '%Y-%m-%d 09');
-    </select>
-
-    <select id="eleven" resultMap="temAndHum">
-        SELECT DATA_CODE
-        , HOUR(DATE_TIME) DATE_TIME
-        , MAX(TEMPERATURE) MAX_TEMPERATURE
-        , MAX(HUMIDITY) MAX_HUMIDITY
-        , MIN(TEMPERATURE) MIN_TEMPERATURE
-        , MIN(HUMIDITY) MIN_HUMIDITY
-        FROM temandhum
-        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %h')
-        = DATE_FORMAT(NOW(), '%Y-%m-%d 11');
-    </select>
-
-    <select id="thirteen" resultMap="temAndHum">
-        SELECT DATA_CODE
-        , HOUR(DATE_TIME) DATE_TIME
-        , MAX(TEMPERATURE) MAX_TEMPERATURE
-        , MAX(HUMIDITY) MAX_HUMIDITY
-        , MIN(TEMPERATURE) MIN_TEMPERATURE
-        , MIN(HUMIDITY) MIN_HUMIDITY
-        FROM temandhum
-        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
-        = DATE_FORMAT(NOW(), '%Y-%m-%d 13');
-    </select>
-
-    <select id="fifteen" resultMap="temAndHum">
-        SELECT DATA_CODE
-        , HOUR(DATE_TIME) DATE_TIME
-        , MAX(TEMPERATURE) MAX_TEMPERATURE
-        , MAX(HUMIDITY) MAX_HUMIDITY
-        , MIN(TEMPERATURE) MIN_TEMPERATURE
-        , MIN(HUMIDITY) MIN_HUMIDITY
-        FROM temandhum
-        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
-        = DATE_FORMAT(NOW(), '%Y-%m-%d 15');
-    </select>
-
-    <select id="seventeen" resultMap="temAndHum">
-        SELECT DATA_CODE
-        , HOUR(DATE_TIME) DATE_TIME
-        , MAX(TEMPERATURE) MAX_TEMPERATURE
-        , MAX(HUMIDITY) MAX_HUMIDITY
-        , MIN(TEMPERATURE) MIN_TEMPERATURE
-        , MIN(HUMIDITY) MIN_HUMIDITY
-        FROM temandhum
-        WHERE DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
-        = DATE_FORMAT(NOW(), '%Y-%m-%d 17');
-    </select>
-
     <select id="detailSelect" resultMap="temAndHum">
         SELECT DATA_CODE
         , TEMPERATURE
@@ -85,6 +25,17 @@
         FROM TEMANDHUM
         WHERE SERIAL_NO = #{serialNo}
         AND DATE_TIME = (SELECT MAX(DATE_TIME) FROM temandhum WHERE SERIAL_NO = #{serialNo});
+    </select>
+
+    <select id="allSelect" resultMap="temAndHum">
+        SELECT DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H') AS DATE_HOUR,
+        MAX(TEMPERATURE) AS MAX_TEMPERATURE,
+        MAX(HUMIDITY) AS MAX_HUMIDITY,
+        MIN(TEMPERATURE) AS MIN_TEMPERATURE,
+        MIN(HUMIDITY) AS MIN_HUMIDITY
+        FROM temandhum
+        WHERE DATE_TIME BETWEEN DATE_FORMAT(NOW(), '%Y-%m-%d 09:00:00') AND DATE_FORMAT(NOW(), '%Y-%m-%d 17:59:59')
+        GROUP BY DATE_FORMAT(DATE_TIME, '%Y-%m-%d %H')
     </select>
 </mapper>
 

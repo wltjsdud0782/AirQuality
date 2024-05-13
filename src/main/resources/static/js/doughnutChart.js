@@ -235,3 +235,29 @@ wrap.addEventListener('mouseout', (event) => {
 
     }, 3000)
 })
+
+const leftBtn = document.querySelector(".btn-left")
+const rightBtn = document.querySelector(".btn-right")
+
+leftBtn.addEventListener("click" ,() => {
+
+    wrap.style.marginLeft = 100 + "%";
+    wrap.style.transition = "all 0.6s";
+})
+
+
+rightBtn.addEventListener("click", () =>{
+    
+    for(let i = 0; i < 4; i++){
+        wrap.style.marginLeft = -100 + "%";
+        wrap.style.transition = "all 0.6s";
+        cnt++
+
+        if(cnt == 3){
+            wrap.style.transition = "0s";
+            wrap.style.marginLeft = "0";
+
+            cnt = 0;
+        }
+    }
+})
